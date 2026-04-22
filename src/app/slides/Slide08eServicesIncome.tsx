@@ -1,0 +1,96 @@
+import { motion } from 'motion/react';
+import { ShieldCheck, Tool, Truck, ChevronRight, Briefcase, Settings, Package } from 'lucide-react';
+
+export function Slide08eServicesIncome() {
+  const options = [
+    {
+      title: "Expert Services",
+      desc: "Earn high-ticket commissions by providing professional consulting, legal, and architectural expertise.",
+      icon: ShieldCheck,
+      color: "from-blue-600 to-indigo-600",
+      delay: 0.1
+    },
+    {
+      title: "Skilled Resources",
+      desc: "Monetize skilled labor, contractors, and maintenance teams through our professional registry.",
+      icon: Settings,
+      color: "from-orange-600 to-amber-600",
+      delay: 0.2
+    },
+    {
+      title: "Suppliers & Vendors",
+      desc: "Partner with material providers and equipment vendors for high-volume trade rewards.",
+      icon: Package,
+      color: "from-emerald-600 to-teal-600",
+      delay: 0.3
+    }
+  ];
+
+  return (
+    <div className="flex items-center justify-center h-full bg-[#030211] p-12 overflow-hidden relative text-white">
+      {/* Background Cinematic Glows */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-blue-600/5 blur-[150px] rounded-full" />
+
+      <div className="max-w-7xl w-full relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {options.map((option, index) => (
+            <motion.div
+              key={index}
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: option.delay }}
+              className="group relative min-h-[580px]"
+            >
+              {/* Card Glow Effect */}
+              <div className={`absolute -inset-0.5 bg-gradient-to-b ${option.color} rounded-[2.5rem] blur opacity-10 group-hover:opacity-40 transition duration-500`} />
+
+              <div className="relative h-full bg-slate-900/40 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-8 flex flex-col items-center text-center overflow-hidden hover:bg-slate-900/60 transition-all duration-500 hover:border-white/20 pb-10">
+
+                {/* Top Icon Section */}
+                <div className="relative mb-10 mt-2">
+                  <div className={`absolute -inset-6 bg-gradient-to-br ${option.color} rounded-3xl blur-2xl opacity-20 animate-pulse`} />
+                  <div className={`w-28 h-28 rounded-3xl bg-gradient-to-br ${option.color} flex items-center justify-center relative shadow-2xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500`}>
+                    <option.icon className="w-14 h-14 text-white" />
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="flex-1 flex flex-col items-center">
+                  <h3 className="text-3xl font-black mb-6 leading-tight tracking-tighter uppercase whitespace-normal">
+                    {option.title}
+                  </h3>
+                  <div className="h-1 w-12 bg-gradient-to-r from-transparent via-white/20 to-transparent mb-6" />
+                  <p className="text-slate-400 text-lg leading-relaxed font-medium px-2">
+                    {option.desc}
+                  </p>
+                </div>
+
+                {/* Bottom Interactive Element */}
+                <div className="mt-8 pt-8 border-t border-white/5 w-full flex flex-col items-center gap-3">
+                   <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-indigo-400 group-hover:text-white transition-colors whitespace-nowrap">
+                      Service Revenue
+                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                   </div>
+                   <div className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-indigo-500 transition-colors" />
+                </div>
+
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Minimalist Footer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="absolute -bottom-20 left-1/2 -translate-x-1/2 flex items-center gap-8 text-slate-600 text-[11px] font-black uppercase tracking-[1em] whitespace-nowrap"
+        >
+          <div className="h-px w-20 bg-slate-800" />
+          Ecosystem Service & Resource Protocols
+          <div className="h-px w-20 bg-slate-800" />
+        </motion.div>
+      </div>
+    </div>
+  );
+}
