@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Heart, Sparkles, TrendingUp, Wallet, Star, ShieldCheck } from 'lucide-react';
-import handshakeImg from '/C:/Users/satya/.gemini/antigravity/brain/259fd6b1-f24f-461f-b189-f7448a22f42e/business_handshake_final_1776772835339.png';
+import handshakeImg from '../../assests/handshake_final.png';
 
 export function Slide23ThankYou() {
   return (

@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Users, Megaphone, Share2 } from 'lucide-react';
 import customerimage from "../../assests/customers.jpg"
+import realtorimage from "../../assests/realtors.png"
 
 export function Slide05RealtorsCustomers() {
   return (
@@ -85,7 +86,7 @@ export function Slide05RealtorsCustomers() {
             >
               <div className="h-44 w-full mb-4 rounded-2xl overflow-hidden border border-white/10">
                 <img
-                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  src={realtorimage}
                   alt="Realtors"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
