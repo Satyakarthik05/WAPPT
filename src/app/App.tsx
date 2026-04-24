@@ -164,18 +164,23 @@ export default function App() {
   }, [currentSlide]); // Re-bind if currentSlide changes to ensure latest state is captured if needed, 
 
   return (
-    <div
-      className="w-screen h-screen overflow-hidden bg-black relative outline-none"
+    <motion.div
+      className="w-screen h-screen overflow-hidden bg-black relative outline-none touch-none"
+      onPanEnd={(_e, info) => {
+        const threshold = 50;
+        if (info.offset.x < -threshold) nextSlide();
+        else if (info.offset.x > threshold) prevSlide();
+      }}
     >
       {/* Main Slide Area */}
       <div className="w-full h-full">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={currentSlide}
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
             className="w-full h-full"
           >
             <CurrentSlideComponent />
@@ -183,12 +188,30 @@ export default function App() {
         </AnimatePresence>
       </div>
 
-
+      {/* Navigation Controls - Hidden on desktop unless hovered, visible on mobile */}
+      <div className="absolute inset-y-0 left-0 flex items-center px-4 z-[70] group">
+        <button
+          onClick={prevSlide}
+          className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity hover:bg-white/30 active:scale-95 shadow-lg"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+      </div>
+      <div className="absolute inset-y-0 right-0 flex items-center px-4 z-[70] group">
+        <button
+          onClick={nextSlide}
+          className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity hover:bg-white/30 active:scale-95 shadow-lg"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+      </div>
 
       {/* Progress Bar */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gray-800 z-50">
+      <div className="absolute top-0 left-0 w-full h-1 bg-gray-800/30 z-[100]">
         <motion.div
-          className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
+          className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 shadow-[0_0_10px_rgba(168,85,247,0.5)]"
           initial={{ width: 0 }}
           animate={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
           transition={{ duration: 0.3 }}
@@ -196,7 +219,7 @@ export default function App() {
       </div>
 
       {/* Global App Icon */}
-      <div className="absolute top-8 right-8 z-[60] pointer-events-none">
+      <div className="absolute top-4 right-4 md:top-8 md:right-8 z-[60] pointer-events-none">
         <motion.img
           initial={{ opacity: 0, y: -20, scale: 0.9 }}
           animate={{
@@ -215,9 +238,29 @@ export default function App() {
           }}
           src={appIcon}
           alt="App Icon"
-          className="w-24 h-24 object-contain"
+          className="w-12 h-12 md:w-24 md:h-24 object-contain"
         />
       </div>
-    </div>
+
+      {/* PPTX Export Button - Fixed position */}
+      <div className="absolute bottom-4 right-4 z-[60]">
+         <button
+          onClick={() => {
+            setIsDownloading(true);
+            generatePPTX(slides).finally(() => setIsDownloading(false));
+          }}
+          disabled={isDownloading}
+          className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white text-sm font-medium hover:bg-white/20 transition-all disabled:opacity-50"
+        >
+          <Download className="w-4 h-4" />
+          {isDownloading ? 'Exporting...' : 'PPTX'}
+        </button>
+      </div>
+
+      {/* Slide Counter - Mobile Friendly */}
+      <div className="absolute bottom-4 left-4 z-[60] bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-white/60 text-xs font-mono">
+        {String(currentSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
+      </div>
+    </motion.div>
   );
 }

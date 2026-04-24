@@ -9,48 +9,48 @@ export function Slide08WealthAssociates() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-16 overflow-auto">
-      <div className="max-w-6xl w-full">
+    <div className="flex items-center justify-center min-h-full h-auto md:h-full bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-6 md:p-16 overflow-y-auto">
+      <div className="max-w-6xl w-full py-8">
         <motion.div
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12"
         >
-          <h1 className="text-6xl font-bold text-white mb-4">Wealth Associates Ecosystem</h1>
-          <p className="text-2xl text-blue-200">Organized Marketing Platform for Real Estate Excellence</p>
+          <h1 className="text-3xl md:text-6xl font-bold text-white mb-4">Wealth Associates Ecosystem</h1>
+          <p className="text-lg md:text-2xl text-blue-200">Organized Marketing Platform for Real Estate Excellence</p>
         </motion.div>
 
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 mb-8 border border-white/20"
+          className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 md:p-8 mb-8 border border-white/20"
         >
-          <div className="flex items-center justify-center gap-8 flex-wrap">
+          <div className="flex items-center justify-center gap-4 md:gap-8 flex-wrap">
             <div className="text-center">
-              <div className="w-24 h-24 mx-auto bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mb-3">
-                <Plus className="w-12 h-12 text-white" strokeWidth={3} />
+              <div className="w-16 h-16 md:w-24 md:h-24 mx-auto bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mb-3">
+                <Plus className="w-8 h-8 md:w-12 md:h-12 text-white" strokeWidth={3} />
               </div>
-              <h3 className="text-3xl font-bold text-white">CREATE</h3>
+              <h3 className="text-xl md:text-3xl font-bold text-white uppercase tracking-wider">CREATE</h3>
             </div>
 
-            <div className="text-6xl text-white/30">•</div>
+            <div className="hidden sm:block text-4xl md:text-6xl text-white/30">•</div>
 
             <div className="text-center">
-              <div className="w-24 h-24 mx-auto bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mb-3">
-                <TrendingUp className="w-12 h-12 text-white" strokeWidth={3} />
+              <div className="w-16 h-16 md:w-24 md:h-24 mx-auto bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mb-3">
+                <TrendingUp className="w-8 h-8 md:w-12 md:h-12 text-white" strokeWidth={3} />
               </div>
-              <h3 className="text-3xl font-bold text-white">IMPROVE</h3>
+              <h3 className="text-xl md:text-3xl font-bold text-white uppercase tracking-wider">IMPROVE</h3>
             </div>
 
-            <div className="text-6xl text-white/30">•</div>
+            <div className="hidden sm:block text-4xl md:text-6xl text-white/30">•</div>
 
             <div className="text-center">
-              <div className="w-24 h-24 mx-auto bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center mb-3">
-                <Shield className="w-12 h-12 text-white" strokeWidth={3} />
+              <div className="w-16 h-16 md:w-24 md:h-24 mx-auto bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center mb-3">
+                <Shield className="w-8 h-8 md:w-12 md:h-12 text-white" strokeWidth={3} />
               </div>
-              <h3 className="text-3xl font-bold text-white">PROTECT</h3>
+              <h3 className="text-xl md:text-3xl font-bold text-white uppercase tracking-wider">PROTECT</h3>
             </div>
           </div>
         </motion.div>

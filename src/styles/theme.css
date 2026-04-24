@@ -179,3 +179,21 @@
     line-height: 1.5;
   }
 }
+
+@layer utilities {
+  .slide-padding {
+    @apply p-4 md:p-10 lg:p-16;
+  }
+  
+  .slide-title {
+    @apply text-3xl md:text-5xl lg:text-6xl font-bold;
+  }
+  
+  .slide-subtitle {
+    @apply text-lg md:text-xl lg:text-2xl;
+  }
+
+  .responsive-container {
+    @apply max-w-full md:max-w-6xl w-full mx-auto py-6 md:py-12;
+  }
+}

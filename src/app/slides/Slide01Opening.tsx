@@ -58,7 +58,7 @@ export function Slide01Opening() {
                         duration: 1,
                         ease: [0.2, 0.65, 0.3, 0.9],
                       }}
-                      className="inline-block text-1xl md:text-6xl text-white font-bold tracking-[0.05em] uppercase"
+                      className="inline-block text-3xl md:text-6xl lg:text-7xl text-white font-bold tracking-[0.05em] uppercase"
                       style={{
                         textShadow: '0 0 20px rgba(255,255,255,0.5), 0 4px 15px rgba(0,0,0,0.6)'
                       }}

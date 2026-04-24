@@ -10,13 +10,13 @@ export function Slide18APMap() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-orange-50 to-red-50 p-6 overflow-hidden">
-      <div className="max-w-6xl w-full">
+    <div className="flex items-center justify-center min-h-full h-auto md:h-full bg-gradient-to-br from-orange-50 to-red-50 p-4 md:p-6 overflow-y-auto">
+      <div className="max-w-6xl w-full py-8">
         <motion.h1
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl font-bold text-gray-900 text-center mb-6"
+          className="text-3xl md:text-5xl font-bold text-gray-900 text-center mb-6"
         >
           Andhra Pradesh Coverage
         </motion.h1>

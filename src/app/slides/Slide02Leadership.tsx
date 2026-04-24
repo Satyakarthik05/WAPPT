@@ -3,8 +3,8 @@ import myimage from "../../assests/image.png"
 
 export function Slide02Leadership() {
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-slate-50 to-blue-50 p-16">
-      <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
+    <div className="flex items-center justify-center min-h-full h-auto md:h-full bg-gradient-to-br from-slate-50 to-blue-50 p-6 md:p-16 overflow-y-auto">
+      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center py-8">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -28,8 +28,8 @@ export function Slide02Leadership() {
           className="space-y-6"
         >
           <div>
-            <h2 className="text-5xl font-bold text-gray-900 mb-2">Naresh Paritala</h2>
-            <p className="text-2xl text-blue-600 font-semibold">Founder / Mentor ~ Wealth Associates</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-2">Naresh Paritala</h2>
+            <p className="text-xl md:text-2xl text-blue-600 font-semibold">Founder / Mentor ~ Wealth Associates</p>
           </div>
 
           <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded"></div>
