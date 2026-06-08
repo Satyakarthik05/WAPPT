@@ -4,7 +4,7 @@ import slide1video from '../../assests/slidevideo.mp4'
 
 export function Slide01Opening() {
   return (
-    <div className="relative w-full h-full bg-black overflow-hidden">
+    <div className="relative w-full min-h-full h-auto bg-black overflow-y-auto md:overflow-hidden">
       {/* Background Video Layer - Force to back */}
       <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <VideoPlaceholder
@@ -15,7 +15,7 @@ export function Slide01Opening() {
       </div>
 
       {/* Content Layer - Force to front */}
-      <div className="absolute inset-0 flex flex-col items-center justify-end text-center p-6 pb-[15vh]" style={{ zIndex: 50 }}>
+      <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-end text-center p-6 pb-[15vh] md:pb-[15vh]" style={{ zIndex: 50 }}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ export function Slide01Opening() {
                         duration: 1,
                         ease: [0.2, 0.65, 0.3, 0.9],
                       }}
-                      className="inline-block text-3xl md:text-6xl lg:text-7xl text-white font-bold tracking-[0.05em] uppercase"
+                      className="inline-block text-2xl sm:text-3xl md:text-2xl md:text-4xl md:text-6xl lg:text-4xl md:text-7xl text-white font-bold tracking-[0.05em] uppercase"
                       style={{
                         textShadow: '0 0 20px rgba(255,255,255,0.5), 0 4px 15px rgba(0,0,0,0.6)'
                       }}
@@ -92,3 +92,7 @@ export function Slide01Opening() {
     </div>
   );
 }
+
+
+
+

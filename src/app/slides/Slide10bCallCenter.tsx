@@ -10,14 +10,14 @@ export function Slide10bCallCenter() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-8 overflow-hidden relative">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-4 md:p-8 overflow-y-auto md:overflow-hidden relative">
       <div className="max-w-6xl w-full flex flex-col items-center relative z-10 h-full justify-between py-12">
         <motion.div
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           className="text-center mb-8"
         >
-          <h1 className="text-4xl font-bold text-white mb-2 tracking-tight">Call Center</h1>
+          <h1 className="text-2xl md:text-4xl font-bold text-white mb-2 tracking-tight">Call Center</h1>
           <p className="text-indigo-300 text-sm font-medium uppercase tracking-[0.3em] opacity-80 font-bold">Unified Support Network</p>
         </motion.div>
 
@@ -107,7 +107,7 @@ export function Slide10bCallCenter() {
         </div>
 
         {/* Franchise Nodes */}
-        <div className="grid grid-cols-4 gap-8 w-full relative z-20">
+        <div className="grid grid-cols-4 gap-4 md:p-8 w-full relative z-20">
           {franchises.map((f, i) => (
             <motion.div
               key={i}
@@ -135,3 +135,7 @@ export function Slide10bCallCenter() {
     </div>
   );
 }
+
+
+
+

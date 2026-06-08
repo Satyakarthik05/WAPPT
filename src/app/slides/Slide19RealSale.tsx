@@ -11,18 +11,18 @@ export function Slide19RealSale() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-blue-900 to-cyan-900 p-6 overflow-hidden">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-blue-900 to-cyan-900 p-6 overflow-y-auto md:overflow-hidden">
       <div className="max-w-6xl w-full">
         <motion.h1
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl font-bold text-white text-center mb-6"
+          className="text-3xl md:text-5xl font-bold text-white text-center mb-6"
         >
           Real Sale Application
         </motion.h1>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-4 md:p-8">
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -132,3 +132,7 @@ export function Slide19RealSale() {
     </div>
   );
 }
+
+
+
+

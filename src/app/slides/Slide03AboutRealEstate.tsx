@@ -38,12 +38,12 @@ export function Slide03AboutRealEstate() {
   ];
 
   return (
-    <div className="relative h-full bg-[#030213] overflow-hidden">
+    <div className="relative min-h-full h-auto bg-[#030213] overflow-y-auto md:overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-blue-600/10 blur-[120px] rounded-full" />
       <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-purple-600/10 blur-[120px] rounded-full" />
 
-      <div className="relative h-full flex flex-col p-8 lg:p-12">
+      <div className="relative h-full flex flex-col p-4 md:p-8 lg:p-6 md:p-12">
         <motion.div
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -54,7 +54,7 @@ export function Slide03AboutRealEstate() {
             <div className="h-[2px] w-12 bg-blue-500" />
             <span className="text-blue-400 font-medium tracking-[0.3em] uppercase text-xs">Strategic Engine</span>
           </div>
-          <h1 className="text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
+          <h1 className="text-2xl md:text-4xl lg:text-3xl md:text-5xl font-black text-white tracking-tight mb-4">
             Real Estate – A <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500">Wealth Engine</span>
           </h1>
           <p className="text-lg text-slate-400 max-w-4xl leading-relaxed">
@@ -63,14 +63,14 @@ export function Slide03AboutRealEstate() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-8 flex-grow overflow-hidden">
+        <div className="grid md:grid-cols-3 gap-6 mb-8 flex-grow overflow-y-auto md:overflow-hidden">
           {highlights.map((item, index) => (
             <motion.div
               key={index}
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 + index * 0.2 }}
-              className="relative group overflow-hidden rounded-[2rem] h-full"
+              className="relative group overflow-y-auto md:overflow-hidden rounded-[2rem] h-full"
             >
               {/* Image Background */}
               <div className="absolute inset-0">
@@ -102,10 +102,10 @@ export function Slide03AboutRealEstate() {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="relative rounded-[2rem] overflow-hidden border border-white/10 bg-white/[0.02] max-h-[30%]"
+          className="relative rounded-[2rem] overflow-y-auto md:overflow-hidden border border-white/10 bg-white/[0.02] max-h-[30%]"
         >
           <div className="grid md:grid-cols-5 h-full">
-            <div className="md:col-span-2 relative h-32 md:h-full overflow-hidden">
+            <div className="md:col-span-2 relative h-32 md:h-full overflow-y-auto md:overflow-hidden">
               <img src={incomeImg} alt="Income" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#030213]/80" />
               <div className="absolute inset-0 flex items-center justify-center">
@@ -114,12 +114,12 @@ export function Slide03AboutRealEstate() {
                  </div>
               </div>
             </div>
-            <div className="md:col-span-3 p-6 lg:p-8">
+            <div className="md:col-span-3 p-6 lg:p-4 md:p-8">
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-4">
                 Multiple Income Opportunities
                 <div className="h-[1px] flex-grow bg-slate-800" />
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+              <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
                 {incomeOps.map((op, i) => (
                   <motion.div 
                     key={i}
@@ -140,4 +140,8 @@ export function Slide03AboutRealEstate() {
     </div>
   );
 }
+
+
+
+
 

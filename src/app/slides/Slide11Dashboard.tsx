@@ -13,17 +13,17 @@ export function Slide11Dashboard() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-6 overflow-hidden">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-6 overflow-y-auto md:overflow-hidden">
       <div className="max-w-[1400px] w-full h-full flex flex-col">
         <motion.h1
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="text-4xl font-bold text-white text-center mb-6"
+          className="text-2xl md:text-4xl font-bold text-white text-center mb-6"
         >
           Dashboard Features
         </motion.h1>
 
-        <div className="flex-1 grid md:grid-cols-2 gap-12 items-center min-h-0">
+        <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 md:p-12 items-center min-h-0">
           {/* Left: Phone Frame with Dashboard Video */}
           <motion.div
             initial={{ x: -100, opacity: 0 }}
@@ -31,7 +31,7 @@ export function Slide11Dashboard() {
             className="flex flex-col items-center h-full min-h-0 py-4"
           >
             <div className="h-full max-h-[600px] aspect-[9/19.5] bg-slate-800 rounded-[2.5rem] p-2 border-4 border-slate-700 shadow-[0_0_50px_rgba(99,102,241,0.2)] relative group mb-6">
-              <div className="w-full h-full bg-black rounded-[2.1rem] overflow-hidden relative">
+              <div className="w-full min-h-full h-auto bg-black rounded-[2.1rem] overflow-y-auto md:overflow-hidden relative">
                 <video
                   src={dashboardvideo}
                   autoPlay
@@ -61,7 +61,7 @@ export function Slide11Dashboard() {
 
           {/* Right: Feature Grid */}
           <div className="h-full flex flex-col justify-center min-h-0">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
@@ -84,3 +84,7 @@ export function Slide11Dashboard() {
     </div>
   );
 }
+
+
+
+

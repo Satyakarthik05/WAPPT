@@ -9,26 +9,26 @@ export function Slide07Properties() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-6 overflow-hidden">
-      <div className="max-w-[1400px] w-full h-full flex flex-col">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-4 md:p-6 overflow-y-auto md:overflow-y-auto md:overflow-hidden">
+      <div className="max-w-[1400px] w-full h-full flex flex-col py-8 md:py-0">
         <motion.h1
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="text-4xl font-bold text-white text-center mb-6"
+          className="text-2xl md:text-2xl md:text-4xl font-bold text-white text-center mb-6"
         >
           Real Estate Properties Portfolio
         </motion.h1>
 
-        <div className="flex-1 grid md:grid-cols-[1.6fr_1fr] gap-6 min-h-0">
+        <div className="flex-1 grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-6 min-h-0">
           {/* Left Column: Property Type Cards */}
           <div className="grid grid-rows-2 gap-4 h-full">
             <motion.div
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="bg-white/10 backdrop-blur-xl rounded-2xl p-4 border border-white/20 flex gap-6 hover:bg-white/15 transition-all shadow-2xl"
+              className="bg-white/10 backdrop-blur-xl rounded-2xl p-4 md:p-6 border border-white/20 flex flex-col sm:flex-row gap-4 md:gap-6 hover:bg-white/15 transition-all shadow-2xl"
             >
-              <div className="w-56 h-full rounded-xl overflow-hidden shadow-2xl border border-white/10 flex-shrink-0">
+              <div className="w-full sm:w-48 md:w-56 h-32 sm:h-full rounded-xl overflow-y-auto md:overflow-hidden shadow-2xl border border-white/10 flex-shrink-0">
                 <img
                   src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
                   alt="Residential Property"
@@ -39,13 +39,13 @@ export function Slide07Properties() {
                 <div className="flex items-center justify-between gap-3 mb-3">
                   <div className="flex items-center gap-3">
                     <div className="p-2.5 bg-indigo-500/20 rounded-xl">
-                      <Home className="w-6 h-6 text-indigo-400" />
+                      <Home className="w-5 h-5 md:w-6 md:h-6 text-indigo-400" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white uppercase tracking-tight">Local/Individual</h3>
+                    <h3 className="text-xl md:text-2xl font-bold text-white uppercase tracking-tight">Local/Individual</h3>
                   </div>
-                  <span className="text-3xl font-extrabold text-indigo-400">70%</span>
+                  <span className="text-2xl md:text-3xl font-extrabold text-indigo-400">70%</span>
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1 md:space-y-2">
                   {[
                     "Residential homes & high-end apartments",
                     "Individual plots & luxury villas",
@@ -64,9 +64,9 @@ export function Slide07Properties() {
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="bg-white/10 backdrop-blur-xl rounded-2xl p-4 border border-white/20 flex gap-6 hover:bg-white/15 transition-all shadow-2xl"
+              className="bg-white/10 backdrop-blur-xl rounded-2xl p-4 md:p-6 border border-white/20 flex flex-col sm:flex-row gap-4 md:gap-6 hover:bg-white/15 transition-all shadow-2xl"
             >
-              <div className="w-56 h-full rounded-xl overflow-hidden shadow-2xl border border-white/10 flex-shrink-0">
+              <div className="w-full sm:w-48 md:w-56 h-32 sm:h-full rounded-xl overflow-y-auto md:overflow-hidden shadow-2xl border border-white/10 flex-shrink-0">
                 <img
                   src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
                   alt="Commercial Property"
@@ -77,13 +77,13 @@ export function Slide07Properties() {
                 <div className="flex items-center justify-between gap-3 mb-3">
                   <div className="flex items-center gap-3">
                     <div className="p-2.5 bg-purple-500/20 rounded-xl">
-                      <Building2 className="w-6 h-6 text-purple-400" />
+                      <Building2 className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white uppercase tracking-tight">Commercial/Corporate</h3>
+                    <h3 className="text-xl md:text-2xl font-bold text-white uppercase tracking-tight">Commercial/Corporate</h3>
                   </div>
-                  <span className="text-3xl font-extrabold text-purple-400">30%</span>
+                  <span className="text-2xl md:text-3xl font-extrabold text-purple-400">30%</span>
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1 md:space-y-2">
                   {[
                     "Modern Office buildings & complexes",
                     "Retail markets & shopping centers",
@@ -111,7 +111,7 @@ export function Slide07Properties() {
                  <PieIcon className="w-5 h-5 text-indigo-400" />
                  <h3 className="text-xl font-bold text-white uppercase tracking-widest text-center">Market Distribution</h3>
               </div>
-              <div className="flex-1 min-h-0">
+              <div className="flex-1 min-h-[250px] md:min-h-0">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
@@ -134,7 +134,7 @@ export function Slide07Properties() {
                   </PieChart>
                 </ResponsiveContainer>
               </div>
-              <div className="flex justify-center gap-8 mt-4 pt-4 border-t border-white/5">
+              <div className="flex justify-center gap-4 md:p-8 mt-4 pt-4 border-t border-white/5">
                  {data.map((d, i) => (
                     <div key={i} className="flex items-center gap-2">
                        <div className="w-3 h-3 rounded-full" style={{ backgroundColor: d.color }}></div>
@@ -148,7 +148,7 @@ export function Slide07Properties() {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="bg-gradient-to-br from-indigo-600 to-purple-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden group"
+              className="bg-gradient-to-br from-indigo-600 to-purple-800 rounded-2xl p-6 shadow-2xl relative overflow-y-auto md:overflow-hidden group"
             >
               {/* Decorative Circle */}
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
@@ -178,3 +178,7 @@ export function Slide07Properties() {
     </div>
   );
 }
+
+
+
+

@@ -3,7 +3,7 @@ import { User, Users, ChevronRight, Share2, Network, GitGraph } from 'lucide-rea
 
 export function Slide08cIncomeOptions() {
   return (
-    <div className="flex items-center justify-center h-full bg-[#030211] p-12 overflow-hidden relative">
+    <div className="flex items-center justify-center min-h-full h-auto bg-[#030211] p-6 md:p-12 overflow-y-auto md:overflow-hidden relative">
       {/* Background Decorative Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-blue-600/5 blur-[150px] rounded-full" />
 
@@ -14,19 +14,19 @@ export function Slide08cIncomeOptions() {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="mb-12"
+          className="mb-6 md:mb-12"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-4">
             <GitGraph className="w-4 h-4 text-blue-400" />
             <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest leading-none">Network Ecosystem</span>
           </div>
-          <h1 className="text-7xl font-black text-white leading-tight tracking-tighter">
+          <h1 className="text-4xl md:text-7xl font-black text-white leading-tight tracking-tighter">
             NETWORK <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">BUILDING</span>
           </h1>
         </motion.div>
 
         {/* Side-by-Side Layout */}
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-6 md:p-16 items-center">
 
           {/* Left: Horizontal Network Visualization */}
           <div className="relative flex items-center justify-start py-10 h-[400px]">
@@ -93,7 +93,7 @@ export function Slide08cIncomeOptions() {
           </div>
 
           {/* Right: Info Panel (Cards & Label) */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-4 md:p-8">
             <motion.div
               initial={{ x: 50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -104,7 +104,7 @@ export function Slide08cIncomeOptions() {
                 <Network className="w-10 h-10 text-white" />
               </div>
 
-              <h2 className="text-4xl font-black text-white uppercase tracking-tighter mb-4">Team Hierarchy</h2>
+              <h2 className="text-2xl md:text-4xl font-black text-white uppercase tracking-tighter mb-4">Team Hierarchy</h2>
               <p className="text-slate-400 text-lg leading-relaxed mb-8">
                 Build a sustainable passive income ecosystem by scaling through multiple organizational levels. Every node in your network amplifies your potential.
               </p>
@@ -147,3 +147,7 @@ export function Slide08cIncomeOptions() {
     </div>
   );
 }
+
+
+
+

@@ -5,12 +5,12 @@ import realtorimage from "../../assests/realtors.png"
 
 export function Slide05RealtorsCustomers() {
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-8 overflow-hidden">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-4 md:p-8 overflow-y-auto md:overflow-hidden">
       <div className="max-w-[1200px] w-full h-[650px] flex flex-col relative">
         <motion.h1
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="text-5xl font-bold text-white text-center mb-12"
+          className="text-3xl md:text-5xl font-bold text-white text-center mb-6 md:mb-12"
         >
           Our Business Ecosystem
         </motion.h1>
@@ -84,7 +84,7 @@ export function Slide05RealtorsCustomers() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="bg-white/10 backdrop-blur-2xl rounded-3xl p-5 border border-white/20 shadow-xl group hover:bg-white/15 transition-all"
             >
-              <div className="h-44 w-full mb-4 rounded-2xl overflow-hidden border border-white/10">
+              <div className="h-44 w-full mb-4 rounded-2xl overflow-y-auto md:overflow-hidden border border-white/10">
                 <img
                   src={realtorimage}
                   alt="Realtors"
@@ -111,7 +111,7 @@ export function Slide05RealtorsCustomers() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="bg-white/10 backdrop-blur-2xl rounded-3xl p-5 border border-white/20 shadow-xl group hover:bg-white/15 transition-all"
             >
-              <div className="h-44 w-full mb-4 rounded-2xl overflow-hidden border border-white/10">
+              <div className="h-44 w-full mb-4 rounded-2xl overflow-y-auto md:overflow-hidden border border-white/10">
                 <img
                   src={customerimage}
                   alt="Customers"
@@ -147,3 +147,7 @@ export function Slide05RealtorsCustomers() {
     </div>
   );
 }
+
+
+
+

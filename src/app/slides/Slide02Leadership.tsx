@@ -3,8 +3,8 @@ import myimage from "../../assests/image.png"
 
 export function Slide02Leadership() {
   return (
-    <div className="flex items-center justify-center min-h-full h-auto md:h-full bg-gradient-to-br from-slate-50 to-blue-50 p-6 md:p-16 overflow-y-auto">
-      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center py-8">
+    <div className="flex items-center justify-center min-h-full h-auto min-h-full bg-gradient-to-br from-slate-50 to-blue-50 p-6 md:p-16 overflow-y-auto">
+      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:p-8 md:gap-6 md:p-12 items-center py-8">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -57,3 +57,7 @@ export function Slide02Leadership() {
     </div>
   );
 }
+
+
+
+

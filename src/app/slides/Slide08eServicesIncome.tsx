@@ -27,7 +27,7 @@ export function Slide08eServicesIncome() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-[#030211] p-12 overflow-hidden relative text-white">
+    <div className="flex items-center justify-center min-h-full h-auto bg-[#030211] p-6 md:p-12 overflow-y-auto md:overflow-hidden relative text-white">
       {/* Background Cinematic Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-blue-600/5 blur-[150px] rounded-full" />
 
@@ -39,12 +39,12 @@ export function Slide08eServicesIncome() {
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: option.delay }}
-              className="group relative min-h-[580px]"
+              className="group relative min-h-auto max-h-[580px]"
             >
               {/* Card Glow Effect */}
               <div className={`absolute -inset-0.5 bg-gradient-to-b ${option.color} rounded-[2.5rem] blur opacity-10 group-hover:opacity-40 transition duration-500`} />
 
-              <div className="relative h-full bg-slate-900/40 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-8 flex flex-col items-center text-center overflow-hidden hover:bg-slate-900/60 transition-all duration-500 hover:border-white/20 pb-10">
+              <div className="relative min-h-full h-auto bg-slate-900/40 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-4 md:p-8 flex flex-col items-center text-center overflow-y-auto md:overflow-hidden hover:bg-slate-900/60 transition-all duration-500 hover:border-white/20 pb-10">
 
                 {/* Top Icon Section */}
                 <div className="relative mb-10 mt-2">
@@ -84,7 +84,7 @@ export function Slide08eServicesIncome() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="absolute -bottom-20 left-1/2 -translate-x-1/2 flex items-center gap-8 text-slate-600 text-[11px] font-black uppercase tracking-[1em] whitespace-nowrap"
+          className="absolute -bottom-20 left-1/2 -translate-x-1/2 flex items-center gap-4 md:p-8 text-slate-600 text-[11px] font-black uppercase tracking-[1em] whitespace-nowrap"
         >
           <div className="h-px w-20 bg-slate-800" />
           Ecosystem Service & Resource Protocols
@@ -94,3 +94,7 @@ export function Slide08eServicesIncome() {
     </div>
   );
 }
+
+
+
+

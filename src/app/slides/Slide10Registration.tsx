@@ -8,29 +8,30 @@ export function Slide10Registration() {
     { icon: TrendingUp, title: "Wealth Investor", color: "text-emerald-400", bg: "bg-emerald-500/10", desc: "Unlock growth opportunities" },
     { icon: Globe, title: "Wealth NRI", color: "text-purple-400", bg: "bg-purple-500/10", desc: "Tailored for NRI clients" },
     { icon: User, title: "Wealth Customer", color: "text-orange-400", bg: "bg-orange-500/10", desc: "Find your dream property" },
-    { icon: Briefcase, title: "Skilled Resource", color: "text-pink-400", bg: "bg-pink-500/10", desc: "Register as an expert" }
+    { icon: Briefcase, title: "Skilled Resource", color: "text-pink-400", bg: "bg-pink-500/10", desc: "Register as an expert" },
+    { icon: Briefcase, title: "Suppliers and Vendors", color: "text-cyan-400", bg: "bg-pink-500/10", desc: "Register as a supplier/vendor" }
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-6 overflow-hidden">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-6 overflow-y-auto md:overflow-hidden">
       <div className="max-w-[1400px] w-full h-full flex flex-col">
         <motion.h1
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="text-4xl font-bold text-white text-center mb-8"
+          className="text-2xl md:text-4xl font-bold text-white text-center mb-8"
         >
           Registration Categories
         </motion.h1>
 
-        <div className="flex-1 grid md:grid-cols-2 gap-12 items-center min-h-0">
+        <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 md:p-12 items-center min-h-0">
           {/* Left: Phone Frame with Registration Video */}
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             className="flex justify-center h-full min-h-0 py-4"
           >
-            <div className="h-full max-h-[580px] aspect-[9/19.5] bg-slate-800 rounded-[2.5rem] p-2 border-4 border-slate-700 shadow-[0_0_50px_rgba(79,70,229,0.2)] relative group">
-              <div className="w-full h-full bg-black rounded-[2.1rem] overflow-hidden relative">
+            <div className="h-full max-h-auto max-h-[580px] aspect-[9/19.5] bg-slate-800 rounded-[2.5rem] p-2 border-4 border-slate-700 shadow-[0_0_50px_rgba(79,70,229,0.2)] relative group">
+              <div className="w-full min-h-full h-auto bg-black rounded-[2.1rem] overflow-y-auto md:overflow-hidden relative">
                 <video
                   src={registervideo}
                   autoPlay
@@ -98,3 +99,7 @@ export function Slide10Registration() {
     </div>
   );
 }
+
+
+
+

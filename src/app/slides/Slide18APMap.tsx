@@ -10,7 +10,7 @@ export function Slide18APMap() {
   ];
 
   return (
-    <div className="flex items-center justify-center min-h-full h-auto md:h-full bg-gradient-to-br from-orange-50 to-red-50 p-4 md:p-6 overflow-y-auto">
+    <div className="flex items-center justify-center min-h-full h-auto min-h-full bg-gradient-to-br from-orange-50 to-red-50 p-4 md:p-6 overflow-y-auto">
       <div className="max-w-6xl w-full py-8">
         <motion.h1
           initial={{ y: -50, opacity: 0 }}
@@ -25,17 +25,17 @@ export function Slide18APMap() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-2xl text-gray-600 text-center mb-12"
+          className="text-2xl text-gray-600 text-center mb-6 md:mb-12"
         >
           Serving All 13 Districts (2026)
         </motion.p> */}
 
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="grid md:grid-cols-2 gap-4 md:p-8 items-center">
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="bg-white rounded-2xl overflow-hidden shadow-xl h-[400px]"
+            className="bg-white rounded-2xl overflow-y-auto md:overflow-hidden shadow-xl h-[400px]"
           >
             <img
               src={district}
@@ -57,7 +57,7 @@ export function Slide18APMap() {
                   <p className="text-sm opacity-90">Complete coverage across AP</p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-3 text-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-center">
                 <div className="bg-white/20 rounded-lg p-3">
                   <p className="text-3xl font-bold">13</p>
                   <p className="text-xs">Combined Districts</p>
@@ -74,7 +74,7 @@ export function Slide18APMap() {
                 <Building2 className="w-5 h-5 text-orange-600" />
                 All Districts Covered
               </h3>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {districts.map((district, index) => (
                   <motion.div
                     key={index}
@@ -106,3 +106,7 @@ export function Slide18APMap() {
     </div>
   );
 }
+
+
+
+

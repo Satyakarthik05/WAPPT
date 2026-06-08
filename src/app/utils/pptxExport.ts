@@ -232,15 +232,67 @@ export const generatePPTX = async () => {
     slide20.addText("Channel Partner", { x: 7, y: 1.5, fontSize: 28, bold: true, color: "7C3AED" });
     slide20.addText("Deposit: ₹1 Lakh\n- Local Focus\n- Commission Based\n- Training Provided", { x: 7, y: 2.3, fontSize: 18, lineSpacing: 28 });
 
-    // --- SLIDE 21: DIGITALLY YOURS ---
+    // --- SLIDE 20b: MANAA SHOPP ---
+    const slide20b = pres.addSlide();
+    slide20b.background = { color: "0B0F19" };
+    slide20b.addText("Manaa Shopp E-commerce", { x: 0.5, y: 0.4, w: 12, h: 0.5, fontSize: 36, bold: true, color: "FFFFFF", fontFace: "Inter" });
+    slide20b.addText("Exclusive Local E-commerce Platform for Channel & Local Partners", { x: 0.5, y: 0.9, w: 12, h: 0.4, fontSize: 16, color: "94A3B8", fontFace: "Inter" });
+    
+    // Left Box: Storefront & Revenue
+    slide20b.addShape(pres.ShapeType.rect, { x: 0.5, y: 1.6, w: 3.8, h: 4.8, fill: { color: "111827" }, line: { color: "1F2937", width: 1 } });
+    slide20b.addText("Storefront & Revenue", { x: 0.7, y: 1.8, w: 3.4, h: 0.4, fontSize: 20, bold: true, color: "A78BFA", fontFace: "Inter" });
+    slide20b.addText("• Zero Inventory Setup: Sell directly from a digital warehouse without buying stock.\n• Daily Needs Commission: High margins on daily grocery baskets & farm produce.\n• Direct Wallet Sync: Earnings instantly credited to the partner's franchise wallet.", { x: 0.7, y: 2.4, w: 3.4, h: 3.8, fontSize: 13, color: "D1D5DB", lineSpacing: 24, fontFace: "Inter" });
+    
+    // Middle Box: Catalog Items Mockup
+    slide20b.addShape(pres.ShapeType.rect, { x: 4.7, y: 1.6, w: 3.8, h: 4.8, fill: { color: "111827" }, line: { color: "312E81", width: 1.5 } });
+    slide20b.addText("Daily Needs Catalog", { x: 4.9, y: 1.8, w: 3.4, h: 0.4, fontSize: 20, bold: true, color: "818CF8", fontFace: "Inter" });
+    slide20b.addText("• Organic Farm Basket (5kg):\n  ₹249 | Partner Comm: ₹35\n• Premium Sona Rice (25kg):\n  ₹1,450 | Partner Comm: ₹120\n• Fresh Dairy & Essentials Kit:\n  ₹180 | Partner Comm: 10%\n• Active Daily Sales Tracking & Analytics", { x: 4.9, y: 2.4, w: 3.4, h: 3.8, fontSize: 13, color: "D1D5DB", lineSpacing: 24, fontFace: "Inter" });
+
+    // Right Box: Supply & Logistics
+    slide20b.addShape(pres.ShapeType.rect, { x: 8.9, y: 1.6, w: 3.8, h: 4.8, fill: { color: "111827" }, line: { color: "1F2937", width: 1 } });
+    slide20b.addText("Logistics & Supply", { x: 9.1, y: 1.8, w: 3.4, h: 0.4, fontSize: 20, bold: true, color: "60A5FA", fontFace: "Inter" });
+    slide20b.addText("• Verified Brands: Connections with farm aggregators, fresh dairies & FMCG brands.\n• Direct Doorstep Delivery: Direct high-speed logistics handled entirely by the hub.\n• Zero Hassle: No local delivery tracking or storage overhead needed.", { x: 9.1, y: 2.4, w: 3.4, h: 3.8, fontSize: 13, color: "D1D5DB", lineSpacing: 24, fontFace: "Inter" });
+
+    // --- SLIDE 21: DIGITAL SALES FORCE ---
     const slide21 = pres.addSlide();
-    slide21.background = { color: "0F172A" };
-    slide21.addText("Digitally Yours: Marketing Plans", { x: 0.5, y: 0.5, fontSize: 36, bold: true, color: "FFFFFF" });
-    const digitalPlans = ["Silver: ₹7,999", "Gold: ₹15,999", "Platinum: ₹24,999"];
-    digitalPlans.forEach((plan, i) => {
-        slide21.addShape(pres.ShapeType.rect, { x: 0.5 + i * 4.2, y: 1.5, w: 3.8, h: 4, fill: { color: "FFFFFF" }, line: { color: "E2E8F0" } });
-        slide21.addText(plan, { x: 0.5 + i * 4.2, y: 2, w: 3.8, align: "center", fontSize: 24, bold: true, color: "1E293B" });
+    slide21.background = { color: "0B0F19" };
+    slide21.addText("Digital Sales Force", { x: 0.5, y: 0.4, w: 12, h: 0.5, fontSize: 36, bold: true, color: "FFFFFF", fontFace: "Inter" });
+    slide21.addText("Assured property sales through a dedicated 4-member expert team", { x: 0.5, y: 0.9, w: 12, h: 0.4, fontSize: 16, color: "94A3B8", fontFace: "Inter" });
+    
+    const teamMembers = [
+        { 
+            role: "Digital Marketing Specialist", 
+            desc: "Generates high-intent leads via targeted digital campaigns.",
+            bullet: "• Google & Social Ads\n• SEO & SEM Setup\n• Funnel Optimization"
+        },
+        { 
+            role: "Telecaller", 
+            desc: "Nurtures and qualifies inbound leads with instant responses.",
+            bullet: "• Instant response\n• Pre-qualification\n• Schedule site visits"
+        },
+        { 
+            role: "Project Head", 
+            desc: "Coordinates strategies and aligns stakeholder expectations.",
+            bullet: "• Strategic planning\n• Developer negotiations\n• Team coordination"
+        },
+        { 
+            role: "Sales Executive", 
+            desc: "Handles physical visits and closes final property sales.",
+            bullet: "• Guided site visits\n• Direct negotiation\n• E-booking & Closing"
+        }
+    ];
+
+    teamMembers.forEach((member, i) => {
+        const xPos = 0.5 + i * 3.15;
+        slide21.addShape(pres.ShapeType.rect, { x: xPos, y: 1.6, w: 2.9, h: 4.6, fill: { color: "111827" }, line: { color: "1F2937", width: 1 } });
+        slide21.addText(member.role, { x: xPos + 0.15, y: 1.8, w: 2.6, h: 0.6, fontSize: 18, bold: true, color: "60A5FA", fontFace: "Inter" });
+        slide21.addText(member.desc, { x: xPos + 0.15, y: 2.5, w: 2.6, h: 0.8, fontSize: 12, color: "9CA3AF", fontFace: "Inter" });
+        slide21.addText("KEY RESPONSIBILITIES", { x: xPos + 0.15, y: 3.4, w: 2.6, h: 0.3, fontSize: 10, bold: true, color: "4B5563", fontFace: "Inter" });
+        slide21.addText(member.bullet, { x: xPos + 0.15, y: 3.8, w: 2.6, h: 2.0, fontSize: 12, color: "D1D5DB", lineSpacing: 22, fontFace: "Inter" });
     });
+
+    slide21.addShape(pres.ShapeType.rect, { x: 0.5, y: 6.4, w: 12.3, h: 0.7, fill: { color: "1E1B4B" }, line: { color: "312E81", width: 1 } });
+    slide21.addText("Assured Sale Guarantee: Campaign Launch → Lead Nurturing → Strategy Sync → Closing Site Visits", { x: 0.7, y: 6.5, w: 11.9, h: 0.5, fontSize: 13, bold: true, color: "E0E7FF", align: "center", fontFace: "Inter" });
 
     // --- SLIDE 22: CLOSING ---
     const slide22 = pres.addSlide();

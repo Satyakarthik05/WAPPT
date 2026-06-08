@@ -10,12 +10,12 @@ export function Slide10cAgentPricing() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-[#030211] p-10 overflow-hidden relative">
+    <div className="flex items-center justify-center min-h-full h-auto bg-[#030211] p-10 overflow-y-auto md:overflow-hidden relative">
       {/* Background Decorative Elements */}
       <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-600/10 blur-[120px] rounded-full" />
       
-      <div className="max-w-[1200px] w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="max-w-[1200px] w-full grid md:grid-cols-2 gap-6 md:p-12 items-center relative z-10">
         
         {/* Left Side: Value Proposition */}
         <motion.div
@@ -33,7 +33,7 @@ export function Slide10cAgentPricing() {
             >
               Exclusive Agent Network
             </motion.span>
-            <h1 className="text-6xl font-black text-white mt-4 leading-[1.1]">
+            <h1 className="text-2xl md:text-4xl md:text-6xl font-black text-white mt-4 leading-[1.1]">
               Wealth <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
                 Associates
@@ -45,7 +45,7 @@ export function Slide10cAgentPricing() {
             Join our professional network and unlock the full potential of the Wealth Associates Ecosystem.
           </p>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {benefits.map((benefit, i) => (
               <motion.div
                 key={i}
@@ -78,7 +78,7 @@ export function Slide10cAgentPricing() {
               
               <div className="flex flex-col items-center">
                 <div className="flex items-start">
-                  <span className="text-4xl font-bold text-white mt-1 mr-1">₹</span>
+                  <span className="text-2xl md:text-4xl font-bold text-white mt-1 mr-1">₹</span>
                   <span className="text-9xl font-black text-white leading-none tracking-tighter">399</span>
                 </div>
                 <span className="text-indigo-400 font-bold text-xl mt-4">Per Year</span>
@@ -117,3 +117,7 @@ export function Slide10cAgentPricing() {
     </div>
   );
 }
+
+
+
+

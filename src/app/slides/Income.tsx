@@ -3,7 +3,7 @@ import { DollarSign, Wallet, TrendingUp, Sparkles } from 'lucide-react';
 
 export function Income() {
   return (
-    <div className="flex items-center justify-center h-full bg-[#030211] p-10 overflow-hidden relative">
+    <div className="flex items-center justify-center min-h-full h-auto bg-[#030211] p-10 overflow-y-auto md:overflow-hidden relative">
       {/* Background Cinematic Glows */}
       <motion.div 
         animate={{ 
@@ -16,7 +16,7 @@ export function Income() {
       
       <div className="relative z-10 flex flex-col items-center">
         {/* Top Decorative Line & Label */}
-        <div className="flex flex-col items-center mb-12">
+        <div className="flex flex-col items-center mb-6 md:mb-12">
           <motion.div
             initial={{ width: 0, opacity: 0 }}
             animate={{ width: "240px", opacity: 1 }}
@@ -39,7 +39,7 @@ export function Income() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="flex items-center justify-center gap-12"
+            className="flex items-center justify-center gap-6 md:p-12"
           >
             <motion.div
                animate={{ y: [0, -15, 0] }}
@@ -96,7 +96,7 @@ export function Income() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col items-center pt-8"
           >
-            <div className="flex items-center gap-4 text-4xl font-bold tracking-[0.2em] text-slate-400 uppercase">
+            <div className="flex items-center gap-4 text-2xl md:text-4xl font-bold tracking-[0.2em] text-slate-400 uppercase">
               <Sparkles className="w-8 h-8 text-indigo-400 animate-pulse" />
               <span>via</span>
               <span className="text-white relative">
@@ -150,4 +150,8 @@ export function Income() {
     </div>
   );
 }
+
+
+
+
 

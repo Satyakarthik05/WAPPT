@@ -5,23 +5,23 @@ import appstore from '../../assests/appstore.jpeg';
 
 export function Slide08AppDownload() {
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-8 overflow-hidden">
-      <div className="max-w-6xl w-full flex flex-col items-center">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-6 md:p-4 md:p-8 overflow-y-auto md:overflow-y-auto md:overflow-hidden">
+      <div className="max-w-6xl w-full flex flex-col items-center py-10 md:py-0">
         <motion.div
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-center mb-10 md:mb-6 md:mb-12"
         >
-          <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
             Seamless Mobile Experience
           </h1>
-          <p className="text-xl text-indigo-200 opacity-90 max-w-2xl mx-auto font-medium">
+          <p className="text-lg md:text-xl text-indigo-200 opacity-90 max-w-2xl mx-auto font-medium px-4">
             Scan to download our app and manage your real estate investments on the go.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 w-full max-w-4xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:p-8 md:gap-6 md:p-12 w-full max-w-4xl px-4 md:px-0">
           {/* Play Store */}
           <motion.div
             initial={{ x: -100, opacity: 0 }}
@@ -99,3 +99,7 @@ export function Slide08AppDownload() {
     </div>
   );
 }
+
+
+
+

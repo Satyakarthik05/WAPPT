@@ -20,12 +20,12 @@ export function Slide08fAppIncome() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-[#030211] p-12 overflow-hidden relative text-white">
+    <div className="flex items-center justify-center min-h-full h-auto bg-[#030211] p-6 md:p-12 overflow-y-auto md:overflow-hidden relative text-white">
       {/* Background Cinematic Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-blue-600/5 blur-[150px] rounded-full" />
       
       <div className="max-w-5xl w-full relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:p-12">
           {options.map((option, index) => (
             <motion.div
               key={index}
@@ -37,10 +37,10 @@ export function Slide08fAppIncome() {
               {/* Card Glow Effect */}
               <div className={`absolute -inset-0.5 bg-gradient-to-b ${option.color} rounded-[3rem] blur opacity-10 group-hover:opacity-40 transition duration-500`} />
               
-              <div className="relative h-full bg-slate-900/40 backdrop-blur-2xl border border-white/10 rounded-[3rem] p-12 flex flex-col items-center text-center overflow-hidden hover:bg-slate-900/60 transition-all duration-500 hover:border-white/20 pb-12">
+              <div className="relative min-h-full h-auto bg-slate-900/40 backdrop-blur-2xl border border-white/10 rounded-[3rem] p-6 md:p-12 flex flex-col items-center text-center overflow-y-auto md:overflow-hidden hover:bg-slate-900/60 transition-all duration-500 hover:border-white/20 pb-12">
                 
                 {/* Top Icon Section */}
-                <div className="relative mb-12 mt-4">
+                <div className="relative mb-6 md:mb-12 mt-4">
                   <div className={`absolute -inset-8 bg-gradient-to-br ${option.color} rounded-full blur-3xl opacity-20 animate-pulse`} />
                   <div className={`w-36 h-36 rounded-3xl bg-gradient-to-br ${option.color} flex items-center justify-center relative shadow-2xl group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500`}>
                     <option.icon className="w-16 h-16 text-white" />
@@ -49,7 +49,7 @@ export function Slide08fAppIncome() {
 
                 {/* Content Section */}
                 <div className="flex-1 flex flex-col items-center">
-                  <h3 className="text-4xl font-black mb-8 leading-tight tracking-tighter uppercase whitespace-normal">
+                  <h3 className="text-2xl md:text-4xl font-black mb-8 leading-tight tracking-tighter uppercase whitespace-normal">
                     {option.title}
                   </h3>
                   <div className="h-1 w-20 bg-gradient-to-r from-transparent via-white/20 to-transparent mb-10" />
@@ -87,3 +87,7 @@ export function Slide08fAppIncome() {
     </div>
   );
 }
+
+
+
+

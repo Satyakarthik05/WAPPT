@@ -3,17 +3,17 @@ import { Users, Megaphone, Smartphone, Network, Layers, Gem } from 'lucide-react
 
 export function Slide08bValueAssociate() {
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-6 overflow-hidden relative">
-      <div className="max-w-[1400px] w-full h-full flex flex-col relative z-10">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 p-4 md:p-6 overflow-y-auto md:overflow-y-auto md:overflow-hidden relative">
+      <div className="max-w-[1400px] w-full h-full flex flex-col relative z-10 py-10 md:py-0">
         <motion.h1
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="text-6xl font-bold text-white text-center mb-10"
+          className="text-3xl md:text-2xl md:text-4xl md:text-6xl font-bold text-white text-center mb-6 md:mb-10"
         >
           Value Associate Program
         </motion.h1>
 
-        <div className="flex-1 grid grid-cols-[1fr_1.2fr_1fr] gap-8 items-center min-h-0">
+        <div className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_1.2fr_1fr] gap-4 md:p-8 items-center min-h-0">
           
           {/* Left: Ecosystem & Marketing */}
           <motion.div
@@ -21,7 +21,7 @@ export function Slide08bValueAssociate() {
             animate={{ x: 0, opacity: 1 }}
             className="space-y-6"
           >
-            <div className="bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-7 border border-white/10 shadow-2xl relative overflow-hidden group">
+            <div className="bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-7 border border-white/10 shadow-2xl relative overflow-y-auto md:overflow-hidden group">
               <div className="absolute -top-10 -left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
               <h3 className="text-white font-bold text-lg mb-6 flex items-center gap-3 border-b border-white/10 pb-3 uppercase tracking-wider relative z-10">
                 <Megaphone className="w-6 h-6 text-blue-400" />
@@ -59,7 +59,7 @@ export function Slide08bValueAssociate() {
               className="absolute -inset-4 bg-cyan-500/20 rounded-[3.5rem] blur-3xl z-0"
             />
 
-            <div className="w-full bg-gradient-to-b from-white/20 to-white/5 backdrop-blur-2xl rounded-[3.5rem] p-10 border border-white/30 shadow-[0_0_80px_rgba(34,211,238,0.4)] relative z-10 overflow-hidden text-center group">
+            <div className="w-full bg-gradient-to-b from-white/20 to-white/5 backdrop-blur-2xl rounded-[3.5rem] p-10 border border-white/30 shadow-[0_0_80px_rgba(34,211,238,0.4)] relative z-10 overflow-y-auto md:overflow-hidden text-center group">
                {/* Decorative Gradient Line */}
                <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500"></div>
                
@@ -67,10 +67,10 @@ export function Slide08bValueAssociate() {
                   <Gem className="w-16 h-16 text-white" />
                </div>
 
-               <h2 className="text-4xl font-black text-white uppercase tracking-wider mb-2">Value Associate</h2>
+               <h2 className="text-2xl md:text-4xl font-black text-white uppercase tracking-wider mb-2">Value Associate</h2>
                <p className="text-cyan-400 font-bold text-sm tracking-[0.2em] uppercase mb-10">Strategic Entry Partner</p>
 
-               <div className="bg-white/10 rounded-3xl p-8 border border-white/20 shadow-inner group-hover:border-cyan-400/50 transition-all duration-300 text-center">
+               <div className="bg-white/10 rounded-3xl p-4 md:p-8 border border-white/20 shadow-inner group-hover:border-cyan-400/50 transition-all duration-300 text-center">
                   <Smartphone className="w-10 h-10 text-cyan-400 mx-auto mb-4" />
                   <p className="text-slate-300 text-[10px] uppercase font-black tracking-[0.3em] mb-3 opacity-80">Registration Gateway</p>
                   <motion.div
@@ -89,7 +89,7 @@ export function Slide08bValueAssociate() {
             animate={{ x: 0, opacity: 1 }}
             className="space-y-6"
           >
-            <div className="bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-7 border border-white/10 shadow-2xl relative overflow-hidden group">
+            <div className="bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-7 border border-white/10 shadow-2xl relative overflow-y-auto md:overflow-hidden group">
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl"></div>
               <h3 className="text-white font-bold text-lg mb-6 flex items-center gap-3 border-b border-white/10 pb-3 uppercase tracking-wider relative z-10">
                 <Layers className="w-6 h-6 text-cyan-400" />
@@ -119,3 +119,7 @@ export function Slide08bValueAssociate() {
     </div>
   );
 }
+
+
+
+

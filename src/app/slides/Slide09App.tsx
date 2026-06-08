@@ -11,25 +11,25 @@ export function Slide09App() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 p-6 overflow-hidden">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 p-6 overflow-y-auto md:overflow-hidden">
       <div className="max-w-[1400px] w-full h-full flex flex-col">
         <motion.h1
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="text-4xl font-bold text-white text-center mb-8"
+          className="text-2xl md:text-4xl font-bold text-white text-center mb-8"
         >
           Wealth Associates Mobile App
         </motion.h1>
 
-        <div className="flex-1 grid md:grid-cols-2 gap-12 items-center min-h-0">
+        <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 md:p-12 items-center min-h-0">
           {/* Left: Phone Frame with Video */}
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             className="flex justify-center h-full min-h-0 py-4"
           >
-            <div className="h-full max-h-[580px] aspect-[9/19.5] bg-slate-800 rounded-[2.5rem] p-2 border-4 border-slate-700 shadow-[0_0_50px_rgba(59,130,246,0.2)] relative group">
-              <div className="w-full h-full bg-black rounded-[2.1rem] overflow-hidden relative">
+            <div className="h-full max-h-auto max-h-[580px] aspect-[9/19.5] bg-slate-800 rounded-[2.5rem] p-2 border-4 border-slate-700 shadow-[0_0_50px_rgba(59,130,246,0.2)] relative group">
+              <div className="w-full min-h-full h-auto bg-black rounded-[2.1rem] overflow-y-auto md:overflow-hidden relative">
                 <video
                   src={appIntroVideo}
                   autoPlay
@@ -61,7 +61,7 @@ export function Slide09App() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {features.map((feature, index) => (
                   <motion.div
                     key={index}
@@ -85,7 +85,7 @@ export function Slide09App() {
               className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-3xl p-6 border border-white/10 backdrop-blur-sm"
             >
               <h4 className="text-lg font-bold text-white mb-4 uppercase tracking-tighter">Core App Capabilities</h4>
-              <div className="grid grid-cols-2 gap-y-3 gap-x-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-6">
                 {[
                   "Smart Property Listing",
                   "Verified Agent Connect",
@@ -107,3 +107,7 @@ export function Slide09App() {
     </div>
   );
 }
+
+
+
+

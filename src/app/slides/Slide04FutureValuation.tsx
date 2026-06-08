@@ -13,7 +13,7 @@ export function Slide04FutureValuation() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-emerald-50 to-teal-50 p-8">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-emerald-50 to-teal-50 p-4 md:p-8">
       <div className="max-w-6xl w-full">
         <motion.div
           initial={{ y: -50, opacity: 0 }}
@@ -21,7 +21,7 @@ export function Slide04FutureValuation() {
           transition={{ duration: 0.8 }}
           className="text-center mb-6"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2">
             Market Growth & Future Potential
           </h1>
           <p className="text-lg text-gray-600">
@@ -51,9 +51,9 @@ export function Slide04FutureValuation() {
               scale: { duration: 0.6, delay: 0.3 },
               y: { duration: 3, repeat: Infinity, ease: "easeInOut" }
             }}
-            className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-8 text-white text-center shadow-2xl z-10 transform"
+            className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-4 md:p-8 text-white text-center shadow-2xl z-10 transform"
           >
-            <p className="text-8xl font-bold mb-1 tracking-tighter">88 lakh</p>
+            <p className="text-5xl md:text-8xl font-bold mb-1 tracking-tighter">88 lakh</p>
             <p className="text-3xl font-bold">Crores </p>
             <p className="text-lg opacity-90">Market Growth</p>
             <p className="text-xs opacity-75 mt-1">Expected by 2030</p>
@@ -114,3 +114,7 @@ export function Slide04FutureValuation() {
     </div>
   );
 }
+
+
+
+

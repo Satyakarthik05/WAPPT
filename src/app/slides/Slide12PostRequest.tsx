@@ -4,23 +4,23 @@ import { VideoPlaceholder } from '../components/VideoPlaceholder';
 
 export function Slide12PostRequest() {
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-blue-50 to-indigo-50 p-16 overflow-auto">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-blue-50 to-indigo-50 p-6 md:p-16 overflow-auto">
       <div className="max-w-6xl w-full">
         <motion.h1
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-6xl font-bold text-gray-900 text-center mb-12"
+          className="text-2xl md:text-4xl md:text-6xl font-bold text-gray-900 text-center mb-6 md:mb-12"
         >
           Post & Request Property
         </motion.h1>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 gap-4 md:p-8 mb-8">
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white rounded-2xl p-8 shadow-xl"
+            className="bg-white rounded-2xl p-4 md:p-8 shadow-xl"
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="p-4 bg-blue-100 rounded-xl">
@@ -71,7 +71,7 @@ export function Slide12PostRequest() {
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-white rounded-2xl p-8 shadow-xl"
+            className="bg-white rounded-2xl p-4 md:p-8 shadow-xl"
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="p-4 bg-purple-100 rounded-xl">
@@ -130,3 +130,7 @@ export function Slide12PostRequest() {
     </div>
   );
 }
+
+
+
+

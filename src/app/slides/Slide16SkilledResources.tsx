@@ -8,17 +8,17 @@ export function Slide16SkilledResources() {
   const supplierRoles = ["Materials", "Interiors", "Logistics", "Tech"];
 
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-indigo-900 via-blue-900 to-slate-900 p-6 overflow-hidden">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-indigo-900 via-blue-900 to-slate-900 p-6 overflow-y-auto md:overflow-hidden">
       <div className="max-w-[1400px] w-full h-full flex flex-col">
         <motion.h1
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="text-4xl font-bold text-white text-center mb-6"
+          className="text-2xl md:text-4xl font-bold text-white text-center mb-6"
         >
           Experts & Strategic Suppliers
         </motion.h1>
 
-        <div className="flex-1 grid grid-cols-[1fr_1.5fr_1fr] gap-12 items-center min-h-0">
+        <div className="flex-1 grid grid-cols-[1fr_1.5fr_1fr] gap-6 md:p-12 items-center min-h-0">
           {/* Left: Experts Screenshot */}
           <motion.div
             initial={{ x: -100, opacity: 0 }}
@@ -54,7 +54,7 @@ export function Slide16SkilledResources() {
                    <p className="text-[10px] text-indigo-300 font-bold tracking-tighter">VERIFIED PROS</p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-3 mb-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
                 {expertRoles.map((role, i) => (
                    <div key={i} className="flex items-center gap-2 bg-white/5 px-3 py-2 rounded-xl border border-white/10 group hover:bg-white/10 transition-colors">
                       <CheckCircle className="w-4 h-4 text-green-400" />
@@ -83,7 +83,7 @@ export function Slide16SkilledResources() {
                    <p className="text-[10px] text-blue-300 font-bold tracking-tighter">TRUSTED VENDORS</p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-3 mb-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
                 {supplierRoles.map((role, i) => (
                    <div key={i} className="flex items-center gap-2 bg-white/5 px-3 py-2 rounded-xl border border-white/10 group hover:bg-white/10 transition-colors">
                       <CheckCircle className="w-4 h-4 text-blue-400" />
@@ -114,3 +114,7 @@ export function Slide16SkilledResources() {
     </div>
   );
 }
+
+
+
+

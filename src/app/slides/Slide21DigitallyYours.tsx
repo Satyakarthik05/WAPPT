@@ -1,149 +1,155 @@
 import { motion } from 'motion/react';
-import { Sparkles, TrendingUp, Crown } from 'lucide-react';
+import { Megaphone, Headphones, UserCheck, Sparkles, Handshake, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export function Slide21DigitallyYours() {
-  const plans = [
+  const team = [
     {
-      name: "Silver",
-      price: "7,999",
-      icon: Sparkles,
-      color: "from-gray-400 to-gray-600",
-      features: [
-        "Website Development",
-        "Basic SEO Setup",
-        "Social Media Posts (10/month)",
-        "Email Support",
-        "Monthly Analytics Report"
+      role: "Digital Marketing Specialist",
+      icon: Megaphone,
+      color: "from-blue-500 to-indigo-600",
+      accentColor: "text-blue-400",
+      shadowColor: "shadow-blue-500/10",
+      description: "Generates high-intent leads via hyper-targeted digital campaigns.",
+      responsibilities: [
+        "Google & Social Media Ads",
+        "SEO & SEM Optimization",
+        "Lead Capture & Funneling",
+        "Brand Visibility campaigns"
       ]
     },
     {
-      name: "Gold",
-      price: "15,999",
-      icon: TrendingUp,
-      color: "from-yellow-400 to-yellow-600",
-      popular: true,
-      features: [
-        "Everything in Silver",
-        "SEO, SMM, SEM Services",
-        "Daily Social Posts",
-        "Video Content (4/month)",
-        "Google My Business",
-        "Bi-weekly Analytics",
-        "WhatsApp Support"
+      role: "Telecaller",
+      icon: Headphones,
+      color: "from-purple-500 to-pink-600",
+      accentColor: "text-purple-400",
+      shadowColor: "shadow-purple-500/10",
+      description: "Nurtures and qualifies inbound leads with instant responses.",
+      responsibilities: [
+        "Instant lead response",
+        "Prospect pre-qualification",
+        "Pitching & project intros",
+        "Scheduling site visits"
       ]
     },
     {
-      name: "Platinum",
-      price: "24,999",
-      icon: Crown,
-      color: "from-purple-400 to-purple-600",
-      features: [
-        "Everything in Gold",
-        "Full SEO, SMM, SEM Suite",
-        "Premium Content Creation",
-        "Dedicated Account Manager",
-        "Real-time Analytics",
-        "Paid Ad Management",
-        "Custom Campaigns",
-        "Brand Strategy Consulting"
+      role: "Project Head",
+      icon: UserCheck,
+      color: "from-emerald-500 to-teal-600",
+      accentColor: "text-emerald-400",
+      shadowColor: "shadow-emerald-500/10",
+      description: "Coordinates strategies and aligns stakeholder expectations.",
+      responsibilities: [
+        "Strategic project planning",
+        "Developer negotiations",
+        "Pricing & policy finalization",
+        "Team coordination & sync"
+      ]
+    },
+    {
+      role: "Sales Executive",
+      icon: Handshake,
+      color: "from-amber-500 to-orange-600",
+      accentColor: "text-amber-400",
+      shadowColor: "shadow-amber-500/10",
+      description: "Handles physical visits and negotiates final property sales.",
+      responsibilities: [
+        "Guided site visits",
+        "In-person negotiation",
+        "Objection handling",
+        "E-booking & final closing"
       ]
     }
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-slate-900 to-purple-900 px-12 py-6 overflow-hidden">
-      <div className="max-w-6xl w-full">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 px-8 py-6 overflow-y-auto">
+      <div className="max-w-7xl w-full">
+        {/* Header Section */}
         <motion.div
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-6"
+          className="text-center mb-8"
         >
-          <h1 className="text-4xl font-bold text-white mb-2">Digitally Yours</h1>
-          <p className="text-xl text-blue-200">Premium Digital Marketing Plans</p>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-semibold uppercase tracking-wider mb-3">
+            <Sparkles className="w-3.5 h-3.5" />
+            Assured Property Sale Guarantee
+          </div>
+          <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-3">
+            Digital <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">Sales Force</span>
+          </h1>
+          <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto">
+            A dedicated squad of 4 experts collaborating seamlessly to assure the sale of a particular property.
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-4">
-          {plans.map((plan, index) => (
-            <motion.div
-              key={index}
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              className={`bg-white rounded-xl overflow-hidden shadow-2xl ${
-                plan.popular ? 'ring-4 ring-yellow-400 transform scale-105' : ''
-              }`}
-            >
-              {plan.popular && (
-                <div className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-center py-1">
-                  <p className="text-xs font-bold text-gray-900">MOST POPULAR</p>
+        {/* 4 Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          {team.map((member, index) => {
+            const Icon = member.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                className={`bg-slate-900/60 backdrop-blur-md rounded-2xl border border-slate-800/80 p-6 flex flex-col justify-between shadow-2xl ${member.shadowColor} hover:border-slate-700/80 transition-all`}
+              >
+                <div>
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${member.color} p-2.5 flex items-center justify-center text-white mb-5 shadow-lg`}>
+                    <Icon className="w-full h-full" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2 tracking-tight">
+                    {member.role}
+                  </h3>
+                  <p className="text-xs text-slate-400 mb-5 leading-relaxed">
+                    {member.description}
+                  </p>
                 </div>
-              )}
 
-              <div className={`bg-gradient-to-br ${plan.color} p-4 text-white text-center`}>
-                <div className="inline-block p-2 bg-white/20 rounded-full mb-2">
-                  <plan.icon className="w-8 h-8" />
+                <div className="border-t border-slate-800/80 pt-4">
+                  <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mb-2.5 block">Key Responsibilities</span>
+                  <ul className="space-y-2">
+                    {member.responsibilities.map((resp, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-xs">
+                        <div className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 bg-gradient-to-r ${member.color}`} />
+                        <span className="text-slate-300 font-medium">{resp}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="text-2xl font-bold mb-1">{plan.name}</h3>
-                <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-xl">₹</span>
-                  <span className="text-4xl font-bold">{plan.price}</span>
-                  <span className="text-sm opacity-90">/month</span>
-                </div>
-              </div>
-
-              <div className="p-4">
-                <ul className="space-y-2">
-                  {plan.features.slice(0, 6).map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <div className="w-4 h-4 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <svg className="w-2.5 h-2.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <span className="text-gray-700 text-xs font-medium">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={`w-full mt-4 py-2 rounded-lg font-semibold text-sm transition-all ${
-                    plan.popular
-                      ? 'bg-gradient-to-r from-yellow-400 to-yellow-600 text-gray-900 shadow-lg'
-                      : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
-                  }`}
-                >
-                  Choose {plan.name}
-                </motion.button>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
+        {/* Process Flow Banner */}
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-6 bg-white/10 backdrop-blur-lg rounded-xl p-4 border border-white/20 text-center"
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="bg-gradient-to-r from-blue-950/40 via-indigo-950/40 to-purple-950/40 border border-slate-800 rounded-2xl p-5"
         >
-          <h3 className="text-xl font-bold text-white mb-3">Why Choose Digitally Yours?</h3>
-          <div className="grid md:grid-cols-3 gap-4 text-white">
-            <div>
-              <p className="text-2xl mb-1">🎯</p>
-              <p className="font-semibold text-sm mb-0.5">Targeted Marketing</p>
-              <p className="text-xs text-blue-200 line-clamp-1">Reach the right audience</p>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 flex-shrink-0">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-white font-bold text-sm">Property Sale Assured</h4>
+                <p className="text-xs text-slate-400">Our structured workflow ensures rapid and certified property liquidation.</p>
+              </div>
             </div>
-            <div>
-              <p className="text-2xl mb-1">📈</p>
-              <p className="font-semibold text-sm mb-0.5">Proven Results</p>
-              <p className="text-xs text-blue-200 line-clamp-1">Track your growth</p>
-            </div>
-            <div>
-              <p className="text-2xl mb-1">💼</p>
-              <p className="font-semibold text-sm mb-0.5">Expert Team</p>
-              <p className="text-xs text-blue-200 line-clamp-1">Professional support</p>
+
+            <div className="flex flex-wrap items-center justify-center gap-2 text-slate-400 text-xs font-semibold">
+              <span className="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-lg text-blue-400">Campaign Launch</span>
+              <ArrowRight className="w-3.5 h-3.5 text-slate-600 hidden sm:inline" />
+              <span className="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-lg text-purple-400">Lead Nurturing</span>
+              <ArrowRight className="w-3.5 h-3.5 text-slate-600 hidden sm:inline" />
+              <span className="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-lg text-emerald-400">Strategy Sync</span>
+              <ArrowRight className="w-3.5 h-3.5 text-slate-600 hidden sm:inline" />
+              <span className="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-lg text-amber-400">Closing Site Visits</span>
             </div>
           </div>
         </motion.div>
@@ -151,3 +157,8 @@ export function Slide21DigitallyYours() {
     </div>
   );
 }
+
+
+
+
+

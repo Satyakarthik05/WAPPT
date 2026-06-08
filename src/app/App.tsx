@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronLeft, ChevronRight, Download } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Download, RotateCcw, Smartphone, Maximize } from 'lucide-react';
 import { generatePPTX } from './utils/pptxExport';
 import appIcon from '../assests/icon-512.png';
 
@@ -52,6 +52,7 @@ import { AP13 } from './slides/AP13';
 import { Slide19RealSale } from './slides/Slide19RealSale';
 import { Slide19bRegionalAssociate } from './slides/Slide19bRegionalAssociate';
 import { Slide20Franchise } from './slides/Slide20Franchise';
+import { Slide20bManaaShopp } from './slides/Slide20bManaaShopp';
 import { Slide21DigitallyYours } from './slides/Slide21DigitallyYours';
 import { Slide22Closing } from './slides/Slide22Closing';
 import { Slide23ThankYou } from './slides/Slide23ThankYou';
@@ -84,7 +85,7 @@ const slides = [
   { component: Slide17LokalBuddy, title: 'LokalBuddy', isDark: true },
   { component: Slide08bValueAssociate, title: 'Value Associate', isDark: true },
   { component: Slide19RealSale, title: 'RealSale', isDark: true },
-  { component: Slide21DigitallyYours, title: 'Digitally Yours', isDark: true },
+  { component: Slide21DigitallyYours, title: 'Digital Sales Force', isDark: true },
   { component: Slide19bRegionalAssociate, title: 'Regional Associate', isDark: true },
   { component: Slide18APMap, title: 'AP Map', isDark: true },
   { component: AP1, title: 'AP District 1', isDark: true },
@@ -101,6 +102,7 @@ const slides = [
   { component: AP12, title: 'AP District 12', isDark: true },
   { component: AP13, title: 'AP District 13', isDark: true },
   { component: Slide20Franchise, title: 'Franchise', isDark: true },
+  { component: Slide20bManaaShopp, title: 'Manaa Shopp', isDark: true },
   { component: Slide22Closing, title: 'Closing', isDark: true },
   // { component: Slide22Closing, title: 'Closing', isDark: true },
   { component: Income, title: 'Income', isDark: true },
@@ -117,6 +119,22 @@ const slides = [
 export default function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isDownloading, setIsDownloading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isPortrait, setIsPortrait] = useState(false);
+  const [forceLandscape, setForceLandscape] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(true);
+
+  // Detect mobile and orientation
+  useEffect(() => {
+    const checkState = () => {
+      setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768);
+      setIsPortrait(window.innerHeight > window.innerWidth);
+    };
+
+    checkState();
+    window.addEventListener('resize', checkState);
+    return () => window.removeEventListener('resize', checkState);
+  }, []);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -164,14 +182,15 @@ export default function App() {
   }, [currentSlide]); // Re-bind if currentSlide changes to ensure latest state is captured if needed, 
 
   return (
-    <motion.div
-      className="w-screen h-screen overflow-hidden bg-black relative outline-none touch-none"
-      onPanEnd={(_e, info) => {
-        const threshold = 50;
-        if (info.offset.x < -threshold) nextSlide();
-        else if (info.offset.x > threshold) prevSlide();
-      }}
-    >
+    <div className={`w-screen h-screen overflow-hidden bg-black relative touch-none ${forceLandscape && isPortrait ? 'force-landscape-container' : ''}`}>
+      <motion.div
+        className="w-full h-full relative outline-none overflow-y-auto"
+        onPanEnd={(_e, info) => {
+          const threshold = 50;
+          if (info.offset.x < -threshold) nextSlide();
+          else if (info.offset.x > threshold) prevSlide();
+        }}
+      >
       {/* Main Slide Area */}
       <div className="w-full h-full">
         <AnimatePresence mode="wait" initial={false}>
@@ -188,30 +207,53 @@ export default function App() {
         </AnimatePresence>
       </div>
 
-      {/* Navigation Controls - Hidden on desktop unless hovered, visible on mobile */}
-      <div className="absolute inset-y-0 left-0 flex items-center px-4 z-[70] group">
+      {/* Navigation Controls - Mobile Optimized */}
+      <div className="absolute inset-x-0 bottom-6 md:inset-y-0 md:left-0 md:right-0 flex justify-between md:flex-col md:justify-center px-4 md:px-8 z-[70] pointer-events-none">
         <button
           onClick={prevSlide}
-          className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity hover:bg-white/30 active:scale-95 shadow-lg"
+          className="p-4 md:p-6 glass-button text-white shadow-2xl pointer-events-auto active:scale-95 transition-all bg-black/40 md:absolute md:left-8"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-8 h-8 md:w-10 md:h-10" />
         </button>
-      </div>
-      <div className="absolute inset-y-0 right-0 flex items-center px-4 z-[70] group">
         <button
           onClick={nextSlide}
-          className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity hover:bg-white/30 active:scale-95 shadow-lg"
+          className="p-4 md:p-6 glass-button text-white shadow-2xl pointer-events-auto active:scale-95 transition-all bg-black/40 md:absolute md:right-8"
           aria-label="Next slide"
         >
-          <ChevronRight className="w-6 h-6" />
+          <ChevronRight className="w-8 h-8 md:w-10 md:h-10" />
+        </button>
+      </div>
+
+      {/* Top Left Controls: Rotate & Export */}
+      <div className="absolute top-4 left-4 z-[80] flex gap-2">
+        {isMobile && isPortrait && (
+          <button
+            onClick={() => setForceLandscape(!forceLandscape)}
+            className={`flex items-center gap-2 px-3 py-2 glass-button text-white text-[10px] font-black uppercase tracking-widest ${forceLandscape ? 'bg-blue-600/40 border-blue-400' : ''}`}
+          >
+            <RotateCcw className={`w-4 h-4 transition-transform duration-500 ${forceLandscape ? 'rotate-180' : ''}`} />
+            {forceLandscape ? 'Reset' : 'Rotate'}
+          </button>
+        )}
+        
+        <button
+          onClick={() => {
+            setIsDownloading(true);
+            generatePPTX(slides).finally(() => setIsDownloading(false));
+          }}
+          disabled={isDownloading}
+          className="flex items-center gap-2 px-3 py-2 glass-button text-white text-[10px] font-black uppercase tracking-widest disabled:opacity-50"
+        >
+          <Download className="w-4 h-4" />
+          {isDownloading ? '...' : 'PPTX'}
         </button>
       </div>
 
       {/* Progress Bar */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gray-800/30 z-[100]">
         <motion.div
-          className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 shadow-[0_0_10px_rgba(168,85,247,0.5)]"
+           className="h-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 shadow-[0_0_15px_rgba(79,70,229,0.5)]"
           initial={{ width: 0 }}
           animate={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
           transition={{ duration: 0.3 }}
@@ -238,29 +280,54 @@ export default function App() {
           }}
           src={appIcon}
           alt="App Icon"
-          className="w-12 h-12 md:w-24 md:h-24 object-contain"
+          className="w-10 h-10 md:w-24 md:h-24 object-contain"
         />
-      </div>
-
-      {/* PPTX Export Button - Fixed position */}
-      <div className="absolute bottom-4 right-4 z-[60]">
-         <button
-          onClick={() => {
-            setIsDownloading(true);
-            generatePPTX(slides).finally(() => setIsDownloading(false));
-          }}
-          disabled={isDownloading}
-          className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white text-sm font-medium hover:bg-white/20 transition-all disabled:opacity-50"
-        >
-          <Download className="w-4 h-4" />
-          {isDownloading ? 'Exporting...' : 'PPTX'}
-        </button>
       </div>
 
       {/* Slide Counter - Mobile Friendly */}
       <div className="absolute bottom-4 left-4 z-[60] bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-white/60 text-xs font-mono">
         {String(currentSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
       </div>
-    </motion.div>
+
+      {/* Orientation Overlay */}
+      <AnimatePresence>
+        {isMobile && isPortrait && !forceLandscape && showOverlay && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 z-[200] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center text-center p-8"
+          >
+            <motion.div
+              animate={{ rotate: [0, 90, 90, 0] }}
+              transition={{ duration: 2, repeat: Infinity, times: [0, 0.4, 0.6, 1] }}
+              className="mb-8 p-8 rounded-[3rem] bg-white/5 border border-white/10 shadow-2xl shadow-blue-500/10"
+            >
+              <Smartphone className="w-20 h-20 text-blue-400" />
+            </motion.div>
+            <h2 className="text-3xl font-black text-white mb-4 uppercase tracking-tight">Landscape Recommended</h2>
+            <p className="text-slate-400 mb-10 max-w-xs font-medium leading-relaxed">
+              This presentation is optimized for landscape view. Please rotate your device or use the button below.
+            </p>
+            <div className="flex flex-col gap-4 w-full max-w-xs">
+              <button
+                onClick={() => setForceLandscape(true)}
+                className="flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 rounded-2xl text-white font-bold hover:bg-blue-500 transition-all shadow-xl shadow-blue-600/20 active:scale-95"
+              >
+                <RotateCcw className="w-6 h-6" />
+                Force Landscape
+              </button>
+              <button
+                onClick={() => setShowOverlay(false)}
+                className="flex items-center justify-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-2xl text-white/60 font-bold hover:bg-white/10 transition-all active:scale-95"
+              >
+                Continue in Portrait
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      </motion.div>
+    </div>
   );
-}
+}

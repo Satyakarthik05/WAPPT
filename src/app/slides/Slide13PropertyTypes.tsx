@@ -71,8 +71,8 @@ export function Slide13PropertyTypes() {
   ];
 
   return (
-    <div className="h-full bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden">
-      <div className="h-full flex flex-col items-center justify-center p-4 md:p-6 lg:p-8">
+    <div className="min-h-full bg-gradient-to-br from-slate-50 to-blue-50 overflow-y-auto md:overflow-hidden">
+      <div className="h-full flex flex-col items-center justify-center p-4 md:p-6 lg:p-4 md:p-8">
         <div className="w-full max-w-[1600px]">
           <motion.div
             initial={{ y: -30, opacity: 0 }}
@@ -80,7 +80,7 @@ export function Slide13PropertyTypes() {
             transition={{ duration: 0.8 }}
             className="text-center mb-6 md:mb-10"
           >
-            <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+            <h1 className="text-2xl md:text-4xl md:text-3xl md:text-5xl font-black text-slate-900 tracking-tight">
               Property <span className="text-blue-600">Lifecycles</span> & Visibility
             </h1>
           </motion.div>
@@ -92,9 +92,9 @@ export function Slide13PropertyTypes() {
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="w-full sm:w-[calc(48%-1rem)] lg:w-[calc(32%-1rem)] xl:w-[calc(31%-1.5rem)] bg-white rounded-[2.5rem] shadow-xl border border-slate-100 overflow-hidden flex flex-col hover:shadow-blue-200/50 transition-all"
+                className="w-full sm:w-[calc(48%-1rem)] lg:w-[calc(32%-1rem)] xl:w-[calc(31%-1.5rem)] bg-white rounded-[2.5rem] shadow-xl border border-slate-100 overflow-y-auto md:overflow-hidden flex flex-col hover:shadow-blue-200/50 transition-all"
               >
-                <div className={`bg-gradient-to-br ${type.color} p-5 md:p-6 text-white relative overflow-hidden`}>
+                <div className={`bg-gradient-to-br ${type.color} p-5 md:p-6 text-white relative overflow-y-auto md:overflow-hidden`}>
                   <div className="absolute top-0 right-0 p-4 opacity-10">
                     <type.icon size={100} />
                   </div>
@@ -142,3 +142,7 @@ export function Slide13PropertyTypes() {
 
   );
 }
+
+
+
+

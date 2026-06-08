@@ -4,7 +4,7 @@ import lokalbuddy from "../../assests/lokalbuddy.jpeg"
 
 export function Slide17LokalBuddy() {
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-purple-50 to-pink-50 p-6 overflow-hidden">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-purple-50 to-pink-50 p-6 overflow-y-auto md:overflow-hidden">
       <div className="max-w-6xl w-full">
         <motion.div
           initial={{ y: -50, opacity: 0 }}
@@ -19,7 +19,7 @@ export function Slide17LokalBuddy() {
 
             <img src={lokalbuddy} alt="LokalBuddy Logo" className="w-30 h-15" />
           </div>
-          <h1 className="text-5xl font-bold text-gray-900 mb-2">LokalBuddy Platform</h1>
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-2">LokalBuddy Platform</h1>
           <p className="text-xl text-gray-600 mb-4">Service Marketplace for Real Estate Professionals</p>
           <motion.a
             href="https://lokalbuddy.com"
@@ -138,3 +138,7 @@ export function Slide17LokalBuddy() {
     </div>
   );
 }
+
+
+
+

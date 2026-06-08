@@ -18,13 +18,13 @@ export function Slide06Marketing() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-slate-50 to-purple-50 p-16">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-slate-50 to-purple-50 p-6 md:p-16">
       <div className="max-w-6xl w-full">
         <motion.h1
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-6xl font-bold text-gray-900 text-center mb-8"
+          className="text-2xl md:text-4xl md:text-6xl font-bold text-gray-900 text-center mb-8"
         >
           Marketing Strategy
         </motion.h1>
@@ -47,14 +47,14 @@ export function Slide06Marketing() {
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 gap-4 md:p-8 mb-8">
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">The Four P's</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {fourPs.map((item, index) => (
                 <motion.div
                   key={index}
@@ -97,7 +97,7 @@ export function Slide06Marketing() {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="rounded-2xl overflow-hidden h-64"
+          className="rounded-2xl overflow-y-auto md:overflow-hidden h-64"
         >
           <img
             src="https://images.unsplash.com/photo-1769798643630-194a0fcfa367?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nJTIwc3RyYXRlZ3klMjBidXNpbmVzc3xlbnwxfHx8fDE3NzY0MTEyOTZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
@@ -109,3 +109,7 @@ export function Slide06Marketing() {
     </div>
   );
 }
+
+
+
+

@@ -6,18 +6,18 @@ import { IndianRupee } from "lucide-react";
 
 export function Slide15RealProperties() {
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-emerald-50 to-teal-50 p-16 overflow-auto">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-emerald-50 to-teal-50 p-6 md:p-16 overflow-auto">
       <div className="max-w-6xl w-full">
         <motion.div
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-center mb-6 md:mb-12"
         >
           {/* <div className="inline-block p-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl mb-6">
             <Globe className="w-16 h-16 text-white" />
           </div> */}
-          <h1 className="text-6xl font-bold text-gray-900 mb-4">RealProperties Website</h1>
+          <h1 className="text-2xl md:text-4xl md:text-6xl font-bold text-gray-900 mb-4">RealProperties Website</h1>
           <p className="text-2xl text-gray-600 mb-6">Your Gateway to Property Listings</p>
           <motion.a
             href="https://realproperties.in"
@@ -35,7 +35,7 @@ export function Slide15RealProperties() {
           </motion.a>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 gap-4 md:p-8 mb-8">
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -104,7 +104,7 @@ export function Slide15RealProperties() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-6 h-10"
           >
-            <div className="bg-white rounded-2xl p-8 shadow-xl text-center">
+            <div className="bg-white rounded-2xl p-4 md:p-8 shadow-xl text-center">
               <div className="inline-block p-4 bg-orange-100 rounded-full mb-4">
                 <IndianRupee className="w-12 h-12 text-orange-600" />
               </div>
@@ -132,7 +132,7 @@ export function Slide15RealProperties() {
               </motion.button>
             </div>
 
-            {/* <div className="bg-white rounded-2xl overflow-hidden shadow-xl h-64">
+            {/* <div className="bg-white rounded-2xl overflow-y-auto md:overflow-hidden shadow-xl h-64">
               <img
                 src="https://images.unsplash.com/photo-1639663742190-1b3dba2eebcf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsdXh1cnklMjByZWFsJTIwZXN0YXRlJTIwcHJvcGVydHl8ZW58MXx8fHwxNzc2NDExMjk1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                 alt="Property"
@@ -145,3 +145,7 @@ export function Slide15RealProperties() {
     </div>
   );
 }
+
+
+
+

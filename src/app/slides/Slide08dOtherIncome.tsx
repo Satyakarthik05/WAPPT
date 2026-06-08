@@ -34,12 +34,12 @@ export function Slide08dOtherIncome() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-[#030211] p-12 overflow-hidden relative text-white">
+    <div className="flex items-center justify-center min-h-full h-auto bg-[#030211] p-6 md:p-12 overflow-y-auto md:overflow-hidden relative text-white">
       {/* Background Cinematic Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-blue-600/5 blur-[150px] rounded-full" />
       
       <div className="max-w-7xl w-full relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:p-8">
           {options.map((option, index) => (
             <motion.div
               key={index}
@@ -51,10 +51,10 @@ export function Slide08dOtherIncome() {
               {/* Card Glow Effect */}
               <div className={`absolute -inset-0.5 bg-gradient-to-b ${option.color} rounded-[2.5rem] blur opacity-10 group-hover:opacity-40 transition duration-500`} />
               
-              <div className="relative h-full bg-slate-900/40 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-8 flex flex-col items-center text-center overflow-hidden hover:bg-slate-900/60 transition-all duration-500 hover:border-white/20">
+              <div className="relative min-h-full h-auto bg-slate-900/40 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-4 md:p-8 flex flex-col items-center text-center overflow-y-auto md:overflow-hidden hover:bg-slate-900/60 transition-all duration-500 hover:border-white/20">
                 
                 {/* Top Icon Section */}
-                <div className="relative mb-12 mt-4">
+                <div className="relative mb-6 md:mb-12 mt-4">
                   <div className={`absolute -inset-4 bg-gradient-to-br ${option.color} rounded-3xl blur-xl opacity-20 animate-pulse`} />
                   <div className={`w-28 h-28 rounded-3xl bg-gradient-to-br ${option.color} flex items-center justify-center relative shadow-2xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500`}>
                     <option.icon className="w-14 h-14 text-white" />
@@ -101,6 +101,10 @@ export function Slide08dOtherIncome() {
     </div>
   );
 }
+
+
+
+
 
 
 

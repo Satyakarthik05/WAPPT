@@ -57,13 +57,13 @@ export function Slide14Ecosystem() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 p-8">
+    <div className="flex items-center justify-center min-h-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 p-4 md:p-8">
       <div className="max-w-4xl w-full">
         <motion.h1
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl font-bold text-white text-center mb-8"
+          className="text-3xl md:text-5xl font-bold text-white text-center mb-8"
         >
           Ecosystem Network
         </motion.h1>
@@ -144,3 +144,7 @@ export function Slide14Ecosystem() {
     </div>
   );
 }
+
+
+
+

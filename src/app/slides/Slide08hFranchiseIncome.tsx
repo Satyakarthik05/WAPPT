@@ -5,7 +5,7 @@ import franchiseImg from '../../assests/real_estate_franchise_mockup_17767700963
 
 export function Slide08hFranchiseIncome() {
   return (
-    <div className="flex items-center justify-center h-full bg-[#030211] p-12 overflow-hidden relative text-white">
+    <div className="flex items-center justify-center min-h-full h-auto bg-[#030211] p-6 md:p-12 overflow-y-auto md:overflow-hidden relative text-white">
       {/* Background Luxury Branding Layer */}
       <div className="absolute inset-0 opacity-20 transition-opacity duration-1000 group-hover:opacity-30">
         <img src={franchiseImg} className="w-full h-full object-cover" alt="Luxury Background" />
@@ -28,13 +28,13 @@ export function Slide08hFranchiseIncome() {
             <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
             <span className="text-[9px] font-black text-blue-400 uppercase tracking-[0.3em] leading-none">Global Partnership Ecosystem</span>
           </div>
-          <h1 className="text-7xl font-black text-white leading-tight tracking-tighter">
+          <h1 className="text-4xl md:text-7xl font-black text-white leading-tight tracking-tighter">
             FRANCHISE <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-600 animate-pulse">MODEL</span>
           </h1>
         </motion.div>
 
         {/* Side-by-Side Layout to prevent overlapping */}
-        <div className="flex-1 w-full grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-12 items-center relative z-10 px-4">
+        <div className="flex-1 w-full grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-6 md:p-12 items-center relative z-10 px-4">
 
           {/* Left: Ecosystem Diagram (Scaled for Column) */}
           <div className="relative flex items-center justify-center min-h-[500px]">
@@ -46,7 +46,7 @@ export function Slide08hFranchiseIncome() {
               className="relative z-30 group"
             >
               <div className="absolute -inset-10 bg-blue-600/20 rounded-full blur-2xl animate-pulse" />
-              <div className="w-40 h-40 bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 rounded-full border-2 border-white/20 flex flex-col items-center justify-center shadow-[0_0_50px_rgba(37,99,235,0.3)] relative overflow-hidden">
+              <div className="w-40 h-40 bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 rounded-full border-2 border-white/20 flex flex-col items-center justify-center shadow-[0_0_50px_rgba(37,99,235,0.3)] relative overflow-y-auto md:overflow-hidden">
                 <Globe className="w-12 h-12 text-white mb-2" />
                 <span className="text-center text-[9px] font-black uppercase tracking-[0.2em] px-2 leading-tight">
                   Wealth Associates<br /><span className="text-white/60 text-[8px]">Franchisor</span>
@@ -115,7 +115,7 @@ export function Slide08hFranchiseIncome() {
               initial={{ x: 50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 2.8, duration: 0.8 }}
-              className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-[3rem] shadow-2xl relative overflow-hidden group"
+              className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-[3rem] shadow-2xl relative overflow-y-auto md:overflow-hidden group"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 blur-3xl -z-10 group-hover:bg-blue-600/20 transition-all" />
               <div className="flex items-center gap-4 mb-6">
@@ -151,7 +151,7 @@ export function Slide08hFranchiseIncome() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3.5 }}
-          className="mt-16 flex items-center gap-8"
+          className="mt-16 flex items-center gap-4 md:p-8"
         >
           <div className="h-px w-32 bg-slate-800" />
           <div className="flex items-center gap-3">
@@ -173,3 +173,7 @@ export function Slide08hFranchiseIncome() {
     </div>
   );
 }
+
+
+
+

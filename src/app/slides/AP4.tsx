@@ -28,7 +28,7 @@ export function AP4() {
   };
 
   return (
-    <div className="flex items-center justify-center h-full bg-[#030211] p-4 md:p-10 overflow-hidden relative">
+    <div className="flex items-center justify-center min-h-full h-auto bg-[#030211] p-4 md:p-10 overflow-y-auto md:overflow-hidden relative">
       <div className="absolute top-0 right-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-blue-600/10 blur-[80px] md:blur-[120px] rounded-full" />
       <div className="absolute bottom-0 left-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-purple-600/10 blur-[80px] md:blur-[120px] rounded-full" />
 
@@ -38,7 +38,7 @@ export function AP4() {
         transition={{ duration: 1 }}
         className="relative max-w-full md:max-w-[1200px] w-full flex items-center justify-center"
       >
-        <div className="relative rounded-2xl md:rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(30,58,138,0.2)] md:shadow-[0_0_80px_rgba(30,58,138,0.3)] w-full max-h-[70vh] md:max-h-none flex items-center justify-center">
+        <div className="relative rounded-2xl md:rounded-[3rem] overflow-y-auto md:overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(30,58,138,0.2)] md:shadow-[0_0_80px_rgba(30,58,138,0.3)] w-full max-h-[70vh] md:max-h-none flex items-center justify-center">
           <img
             src={eastgodavari}
             alt="East Godavari"
@@ -63,7 +63,7 @@ export function AP4() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="z-50 w-24 h-24 md:w-40 md:h-40 rounded-full bg-white/10 backdrop-blur-2xl border border-white/20 flex flex-col items-center justify-center shadow-2xl cursor-grab active:cursor-grabbing"
           >
-            <span className="text-2xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-indigo-500 leading-none">
+            <span className="text-2xl md:text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-indigo-500 leading-none">
               19
             </span>
             <span className="text-indigo-300 font-bold tracking-[0.1em] md:tracking-[0.2em] uppercase text-[8px] md:text-xs mt-1 text-center px-2">
@@ -80,3 +80,6 @@ export function AP4() {
     </div>
   );
 }
+
+
+
