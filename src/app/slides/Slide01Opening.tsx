@@ -1,29 +1,62 @@
-import { motion } from 'motion/react';
-import { VideoPlaceholder } from '../components/VideoPlaceholder';
-import slide1video from '../../assests/slidevideo.mp4'
+import { motion, AnimatePresence } from 'motion/react';
+import { useState, useEffect } from 'react';
+import luxurySkyscraper from '../../assests/luxury_skyscraper.png';
+import luxuryVillas from '../../assests/luxury_villas.png';
+import luxuryCommercial from '../../assests/luxury_commercial.png';
+import luxuryWaterfront from '../../assests/luxury_waterfront.png';
+import appIcon from '../../assests/app_icon.png';
+
+const BACKGROUND_IMAGES = [luxurySkyscraper, luxuryVillas, luxuryCommercial, luxuryWaterfront];
 
 export function Slide01Opening() {
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % BACKGROUND_IMAGES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="relative w-full min-h-full h-auto bg-black overflow-y-auto md:overflow-hidden">
-      {/* Background Video Layer - Force to back */}
-      <div className="absolute inset-0" style={{ zIndex: 0 }}>
-        <VideoPlaceholder
-          title="Full-screen Background Video"
-          className="w-full h-full object-cover opacity-100"
-          src={slide1video}
-        />
+      {/* Background Image Slideshow Layer */}
+      <div className="absolute inset-0 z-0 bg-black">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={currentIdx}
+            src={BACKGROUND_IMAGES[currentIdx]}
+            alt="Building background"
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 0.75, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5 }}
+            className="w-full h-full object-cover"
+          />
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35 pointer-events-none" />
       </div>
 
       {/* Content Layer - Force to front */}
-      <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-end text-center p-6 pb-[15vh] md:pb-[15vh]" style={{ zIndex: 50 }}>
+      <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-end text-center p-6 pb-[10vh] md:pb-[12vh]" style={{ zIndex: 50 }}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className="max-w-4xl"
+          className="max-w-4xl flex flex-col items-center gap-6"
         >
+          {/* Wealth Associates Logo */}
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 1, type: "spring", stiffness: 80 }}
+            className="w-28 h-28 md:w-40 md:h-40 rounded-3xl bg-white p-3 shadow-2xl border border-white/10 flex items-center justify-center overflow-hidden"
+          >
+            <img src={appIcon} alt="Wealth Associates Logo" className="w-full h-full object-contain" />
+          </motion.div>
+
           {/* Taglines */}
-          <div className="space-y-10">
+          <div className="space-y-6">
             <motion.div
               initial="hidden"
               animate="visible"

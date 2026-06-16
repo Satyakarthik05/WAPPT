@@ -36,7 +36,7 @@ export function Slide14Ecosystem() {
     },
     {
       icon: Users,
-      name: "Digitally Yours",
+      name: "Digital Sales Force",
       description: "Digital marketing",
       color: "from-purple-500 to-purple-600",
       // bottom-0 left-1/2 -translate-x-1/2  → centre X = cx, centre Y = H - boxH/2

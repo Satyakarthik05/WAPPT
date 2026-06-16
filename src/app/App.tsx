@@ -5,6 +5,7 @@ import { generatePPTX } from './utils/pptxExport';
 import appIcon from '../assests/icon-512.png';
 
 // Import all slides
+import { Slide00Intro } from './slides/Slide00Intro';
 import { Slide01Opening } from './slides/Slide01Opening';
 import { Slide02Leadership } from './slides/Slide02Leadership';
 import { Slide03AboutRealEstate } from './slides/Slide03AboutRealEstate';
@@ -59,6 +60,7 @@ import { Slide23ThankYou } from './slides/Slide23ThankYou';
 
 
 const slides = [
+  { component: Slide00Intro, title: 'Intro', isDark: true },
   { component: Slide01Opening, title: 'Opening', isDark: true },
   { component: Slide02Leadership, title: 'Leadership', isDark: true },
   { component: Slide03AboutRealEstate, title: 'About Real Estate', isDark: true },

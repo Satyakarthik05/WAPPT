@@ -15,12 +15,13 @@ export function Slide20Franchise() {
 
         <div className="flex-1 grid grid-cols-[1fr_1.2fr_1fr] gap-4 md:p-8 items-center min-h-0">
           
-          {/* Left: Network Role & Operational Context */}
+          {/* Left: Network Role & Requirements */}
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             className="space-y-6"
           >
+            {/* Network Role */}
             <div className="bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-7 border border-white/10 shadow-2xl relative overflow-y-auto md:overflow-hidden group">
               <div className="absolute -top-10 -left-10 w-32 h-32 bg-green-500/10 rounded-full blur-2xl"></div>
               <h3 className="text-white font-bold text-lg mb-6 flex items-center gap-3 border-b border-white/10 pb-3 uppercase tracking-wider relative z-10">
@@ -38,6 +39,29 @@ export function Slide20Franchise() {
                 </div>
                 <div className="bg-white/5 rounded-2xl p-4 border border-white/5 mt-4">
                   <p className="text-xs text-slate-300 leading-relaxed font-medium">Focused on high-intensity local sales and property lead management.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Requirements */}
+            <div className="bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-7 border border-white/10 shadow-2xl relative overflow-y-auto md:overflow-hidden group">
+              <div className="absolute -top-10 -left-10 w-32 h-32 bg-green-500/10 rounded-full blur-2xl"></div>
+              <h3 className="text-white font-bold text-lg mb-6 flex items-center gap-3 border-b border-white/10 pb-3 uppercase tracking-wider relative z-10">
+                <ShieldCheck className="w-6 h-6 text-green-400" />
+                Requirements
+              </h3>
+              <div className="space-y-6 relative z-10">
+                <div className="group/item">
+                  <p className="text-slate-400 text-[10px] uppercase font-bold tracking-widest mb-1 group-hover/item:text-green-400 transition-colors">Infrastructure</p>
+                  <p className="text-white text-base font-bold">Min 750 Sq. Ft Office</p>
+                </div>
+                <div className="group/item">
+                  <p className="text-slate-400 text-[10px] uppercase font-bold tracking-widest mb-1 group-hover/item:text-green-400 transition-colors">Human Resource</p>
+                  <p className="text-white text-base font-bold">Dedicated Telecallers</p>
+                </div>
+                <div className="group/item">
+                  <p className="text-slate-400 text-[10px] uppercase font-bold tracking-widest mb-1 group-hover/item:text-green-400 transition-colors">Governance</p>
+                  <p className="text-white text-base font-bold">Verified Background</p>
                 </div>
               </div>
             </div>

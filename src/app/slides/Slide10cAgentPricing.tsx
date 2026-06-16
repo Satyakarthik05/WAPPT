@@ -14,9 +14,9 @@ export function Slide10cAgentPricing() {
       {/* Background Decorative Elements */}
       <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-600/10 blur-[120px] rounded-full" />
-      
+
       <div className="max-w-[1200px] w-full grid md:grid-cols-2 gap-6 md:p-12 items-center relative z-10">
-        
+
         {/* Left Side: Value Proposition */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
@@ -36,7 +36,7 @@ export function Slide10cAgentPricing() {
             <h1 className="text-2xl md:text-4xl md:text-6xl font-black text-white mt-4 leading-[1.1]">
               Wealth <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
-                Associates
+                Associate
               </span>
             </h1>
           </div>
@@ -71,11 +71,11 @@ export function Slide10cAgentPricing() {
           className="relative group"
         >
           <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-[3rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-          
+
           <div className="relative bg-slate-900/80 backdrop-blur-3xl border border-white/20 rounded-[2.5rem] p-10 shadow-2-xl">
             <div className="text-center space-y-6">
               <h3 className="text-slate-400 font-bold uppercase tracking-widest text-sm">Agent Registration</h3>
-              
+
               <div className="flex flex-col items-center">
                 <div className="flex items-start">
                   <span className="text-2xl md:text-4xl font-bold text-white mt-1 mr-1">₹</span>
@@ -88,9 +88,9 @@ export function Slide10cAgentPricing() {
 
               <div className="space-y-4">
                 <p className="text-slate-400 text-sm italic">
-                  * Minimal verification fee for lifetime platform eligibility
+
                 </p>
-                
+
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
