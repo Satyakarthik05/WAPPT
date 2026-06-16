@@ -5,7 +5,7 @@ import { generatePPTX } from './utils/pptxExport';
 import appIcon from '../assests/icon-512.png';
 
 // Import all slides
-import { Slide00Intro } from './slides/Slide00Intro';
+// import { Slide00Intro } from './slides/Slide00Intro';
 import { Slide01Opening } from './slides/Slide01Opening';
 import { Slide02Leadership } from './slides/Slide02Leadership';
 import { Slide03AboutRealEstate } from './slides/Slide03AboutRealEstate';
@@ -60,7 +60,7 @@ import { Slide23ThankYou } from './slides/Slide23ThankYou';
 
 
 const slides = [
-  { component: Slide00Intro, title: 'Intro', isDark: true },
+  // { component: Slide00Intro, title: 'Intro', isDark: true },
   { component: Slide01Opening, title: 'Opening', isDark: true },
   { component: Slide02Leadership, title: 'Leadership', isDark: true },
   { component: Slide03AboutRealEstate, title: 'About Real Estate', isDark: true },
@@ -193,143 +193,143 @@ export default function App() {
           else if (info.offset.x > threshold) prevSlide();
         }}
       >
-      {/* Main Slide Area */}
-      <div className="w-full h-full">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="w-full h-full"
-          >
-            <CurrentSlideComponent />
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Navigation Controls - Mobile Optimized */}
-      <div className="absolute inset-x-0 bottom-6 md:inset-y-0 md:left-0 md:right-0 flex justify-between md:flex-col md:justify-center px-4 md:px-8 z-[70] pointer-events-none">
-        <button
-          onClick={prevSlide}
-          className="p-4 md:p-6 glass-button text-white shadow-2xl pointer-events-auto active:scale-95 transition-all bg-black/40 md:absolute md:left-8"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="w-8 h-8 md:w-10 md:h-10" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="p-4 md:p-6 glass-button text-white shadow-2xl pointer-events-auto active:scale-95 transition-all bg-black/40 md:absolute md:right-8"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="w-8 h-8 md:w-10 md:h-10" />
-        </button>
-      </div>
-
-      {/* Top Left Controls: Rotate & Export */}
-      <div className="absolute top-4 left-4 z-[80] flex gap-2">
-        {isMobile && isPortrait && (
-          <button
-            onClick={() => setForceLandscape(!forceLandscape)}
-            className={`flex items-center gap-2 px-3 py-2 glass-button text-white text-[10px] font-black uppercase tracking-widest ${forceLandscape ? 'bg-blue-600/40 border-blue-400' : ''}`}
-          >
-            <RotateCcw className={`w-4 h-4 transition-transform duration-500 ${forceLandscape ? 'rotate-180' : ''}`} />
-            {forceLandscape ? 'Reset' : 'Rotate'}
-          </button>
-        )}
-        
-        <button
-          onClick={() => {
-            setIsDownloading(true);
-            generatePPTX(slides).finally(() => setIsDownloading(false));
-          }}
-          disabled={isDownloading}
-          className="flex items-center gap-2 px-3 py-2 glass-button text-white text-[10px] font-black uppercase tracking-widest disabled:opacity-50"
-        >
-          <Download className="w-4 h-4" />
-          {isDownloading ? '...' : 'PPTX'}
-        </button>
-      </div>
-
-      {/* Progress Bar */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gray-800/30 z-[100]">
-        <motion.div
-           className="h-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 shadow-[0_0_15px_rgba(79,70,229,0.5)]"
-          initial={{ width: 0 }}
-          animate={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
-          transition={{ duration: 0.3 }}
-        />
-      </div>
-
-      {/* Global App Icon */}
-      <div className="absolute top-4 right-4 md:top-8 md:right-8 z-[60] pointer-events-none">
-        <motion.img
-          initial={{ opacity: 0, y: -20, scale: 0.9 }}
-          animate={{
-            opacity: 1,
-            y: [0, -10, 0],
-            scale: [1, 1.05, 1],
-            filter: slides[currentSlide].isDark
-              ? 'brightness(1.2) drop-shadow(0 0 20px rgba(255,255,255,0.4))'
-              : 'brightness(1) drop-shadow(0 0 10px rgba(0,0,0,0.2))'
-          }}
-          transition={{
-            opacity: { duration: 2, ease: "easeOut" },
-            y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-            scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-            filter: { duration: 1 }
-          }}
-          src={appIcon}
-          alt="App Icon"
-          className="w-10 h-10 md:w-24 md:h-24 object-contain"
-        />
-      </div>
-
-      {/* Slide Counter - Mobile Friendly */}
-      <div className="absolute bottom-4 left-4 z-[60] bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-white/60 text-xs font-mono">
-        {String(currentSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
-      </div>
-
-      {/* Orientation Overlay */}
-      <AnimatePresence>
-        {isMobile && isPortrait && !forceLandscape && showOverlay && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="absolute inset-0 z-[200] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center text-center p-8"
-          >
+        {/* Main Slide Area */}
+        <div className="w-full h-full">
+          <AnimatePresence mode="wait" initial={false}>
             <motion.div
-              animate={{ rotate: [0, 90, 90, 0] }}
-              transition={{ duration: 2, repeat: Infinity, times: [0, 0.4, 0.6, 1] }}
-              className="mb-8 p-8 rounded-[3rem] bg-white/5 border border-white/10 shadow-2xl shadow-blue-500/10"
+              key={currentSlide}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="w-full h-full"
             >
-              <Smartphone className="w-20 h-20 text-blue-400" />
+              <CurrentSlideComponent />
             </motion.div>
-            <h2 className="text-3xl font-black text-white mb-4 uppercase tracking-tight">Landscape Recommended</h2>
-            <p className="text-slate-400 mb-10 max-w-xs font-medium leading-relaxed">
-              This presentation is optimized for landscape view. Please rotate your device or use the button below.
-            </p>
-            <div className="flex flex-col gap-4 w-full max-w-xs">
-              <button
-                onClick={() => setForceLandscape(true)}
-                className="flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 rounded-2xl text-white font-bold hover:bg-blue-500 transition-all shadow-xl shadow-blue-600/20 active:scale-95"
+          </AnimatePresence>
+        </div>
+
+        {/* Navigation Controls - Mobile Optimized */}
+        <div className="absolute inset-x-0 bottom-6 md:inset-y-0 md:left-0 md:right-0 flex justify-between md:flex-col md:justify-center px-4 md:px-8 z-[70] pointer-events-none">
+          <button
+            onClick={prevSlide}
+            className="p-4 md:p-6 glass-button text-white shadow-2xl pointer-events-auto active:scale-95 transition-all bg-black/40 md:absolute md:left-8"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="w-8 h-8 md:w-10 md:h-10" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="p-4 md:p-6 glass-button text-white shadow-2xl pointer-events-auto active:scale-95 transition-all bg-black/40 md:absolute md:right-8"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="w-8 h-8 md:w-10 md:h-10" />
+          </button>
+        </div>
+
+        {/* Top Left Controls: Rotate & Export */}
+        <div className="absolute top-4 left-4 z-[80] flex gap-2">
+          {isMobile && isPortrait && (
+            <button
+              onClick={() => setForceLandscape(!forceLandscape)}
+              className={`flex items-center gap-2 px-3 py-2 glass-button text-white text-[10px] font-black uppercase tracking-widest ${forceLandscape ? 'bg-blue-600/40 border-blue-400' : ''}`}
+            >
+              <RotateCcw className={`w-4 h-4 transition-transform duration-500 ${forceLandscape ? 'rotate-180' : ''}`} />
+              {forceLandscape ? 'Reset' : 'Rotate'}
+            </button>
+          )}
+
+          <button
+            onClick={() => {
+              setIsDownloading(true);
+              generatePPTX(slides).finally(() => setIsDownloading(false));
+            }}
+            disabled={isDownloading}
+            className="flex items-center gap-2 px-3 py-2 glass-button text-white text-[10px] font-black uppercase tracking-widest disabled:opacity-50"
+          >
+            <Download className="w-4 h-4" />
+            {isDownloading ? '...' : 'PPTX'}
+          </button>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="absolute top-0 left-0 w-full h-1 bg-gray-800/30 z-[100]">
+          <motion.div
+            className="h-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 shadow-[0_0_15px_rgba(79,70,229,0.5)]"
+            initial={{ width: 0 }}
+            animate={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
+            transition={{ duration: 0.3 }}
+          />
+        </div>
+
+        {/* Global App Icon */}
+        <div className="absolute top-4 right-4 md:top-8 md:right-8 z-[60] pointer-events-none">
+          <motion.img
+            initial={{ opacity: 0, y: -20, scale: 0.9 }}
+            animate={{
+              opacity: 1,
+              y: [0, -10, 0],
+              scale: [1, 1.05, 1],
+              filter: slides[currentSlide].isDark
+                ? 'brightness(1.2) drop-shadow(0 0 20px rgba(255,255,255,0.4))'
+                : 'brightness(1) drop-shadow(0 0 10px rgba(0,0,0,0.2))'
+            }}
+            transition={{
+              opacity: { duration: 2, ease: "easeOut" },
+              y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+              scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+              filter: { duration: 1 }
+            }}
+            src={appIcon}
+            alt="App Icon"
+            className="w-10 h-10 md:w-24 md:h-24 object-contain"
+          />
+        </div>
+
+        {/* Slide Counter - Mobile Friendly */}
+        <div className="absolute bottom-4 left-4 z-[60] bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-white/60 text-xs font-mono">
+          {String(currentSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
+        </div>
+
+        {/* Orientation Overlay */}
+        <AnimatePresence>
+          {isMobile && isPortrait && !forceLandscape && showOverlay && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 z-[200] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center text-center p-8"
+            >
+              <motion.div
+                animate={{ rotate: [0, 90, 90, 0] }}
+                transition={{ duration: 2, repeat: Infinity, times: [0, 0.4, 0.6, 1] }}
+                className="mb-8 p-8 rounded-[3rem] bg-white/5 border border-white/10 shadow-2xl shadow-blue-500/10"
               >
-                <RotateCcw className="w-6 h-6" />
-                Force Landscape
-              </button>
-              <button
-                onClick={() => setShowOverlay(false)}
-                className="flex items-center justify-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-2xl text-white/60 font-bold hover:bg-white/10 transition-all active:scale-95"
-              >
-                Continue in Portrait
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                <Smartphone className="w-20 h-20 text-blue-400" />
+              </motion.div>
+              <h2 className="text-3xl font-black text-white mb-4 uppercase tracking-tight">Landscape Recommended</h2>
+              <p className="text-slate-400 mb-10 max-w-xs font-medium leading-relaxed">
+                This presentation is optimized for landscape view. Please rotate your device or use the button below.
+              </p>
+              <div className="flex flex-col gap-4 w-full max-w-xs">
+                <button
+                  onClick={() => setForceLandscape(true)}
+                  className="flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 rounded-2xl text-white font-bold hover:bg-blue-500 transition-all shadow-xl shadow-blue-600/20 active:scale-95"
+                >
+                  <RotateCcw className="w-6 h-6" />
+                  Force Landscape
+                </button>
+                <button
+                  onClick={() => setShowOverlay(false)}
+                  className="flex items-center justify-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-2xl text-white/60 font-bold hover:bg-white/10 transition-all active:scale-95"
+                >
+                  Continue in Portrait
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
     </div>
   );
-}
+}
